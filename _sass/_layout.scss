@@ -37,14 +37,14 @@
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     
     button {
       background: transparent;
       border: none;
       color: var(--text-color);
       cursor: pointer;
-      padding: 0.5rem;
+      padding: 0.6rem;
       line-height: 1;
       border-radius: $border-radius;
       transition: $transition-fast;
@@ -54,8 +54,8 @@
       }
       
       svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
       }
     }
   }

@@ -3,6 +3,12 @@
 main:
   - title: "Home"
     url: "/"
+  - title: "Interior"
+    url: "/category/interior/"
+  - title: "Exterior" 
+    url: "/category/exterior/"
+  - title: "Garden"
+    url: "/category/garden/"
   - title: "About"
     url: "/about/"
   - title: "Contact"

@@ -157,13 +157,13 @@ th { background-color: var(--widget-bg); font-weight: 600; }
 
 .site-header .site-branding .site-logo .site-title { font-size: 1.5rem; font-weight: 700; color: var(--heading-color); }
 
-.site-header .header-actions { display: flex; align-items: center; gap: 1rem; }
+.site-header .header-actions { display: flex; align-items: center; gap: 0.75rem; }
 
-.site-header .header-actions button { background: transparent; border: none; color: var(--text-color); cursor: pointer; padding: 0.5rem; line-height: 1; border-radius: 4px; transition: all 0.2s ease; }
+.site-header .header-actions button { background: transparent; border: none; color: var(--text-color); cursor: pointer; padding: 0.6rem; line-height: 1; border-radius: 4px; transition: all 0.2s ease; }
 
 .site-header .header-actions button:hover { background-color: var(--search-bg); }
 
-.site-header .header-actions button svg { width: 20px; height: 20px; }
+.site-header .header-actions button svg { width: 18px; height: 18px; }
 
 .site-header .search-box { display: none; position: absolute; left: 0; right: 0; top: 100%; background-color: var(--navbar-bg); padding: 1rem; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); z-index: 1000; transition: all 0.3s ease; opacity: 0; transform: translateY(-10px); }
 
