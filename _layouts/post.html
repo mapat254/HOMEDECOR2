@@ -47,12 +47,16 @@ layout: default
       </div>
     </header>
     
-    {% include responsive-image.html 
-      src=page.featured_image 
-      alt=page.title 
-      class="img-fluid" 
-      wrapper_class="post-featured-image"
-    %}
+    {% if page.image %}
+    <div class="post-featured-image-container">
+      {% include responsive-image.html 
+        src=page.image 
+        alt=page.title 
+        class="img-fluid post-featured-img" 
+        wrapper_class="post-featured-image"
+      %}
+    </div>
+    {% endif %}
     
     {% if page.toc %}
     <div class="post-toc">
