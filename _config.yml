@@ -211,3 +211,14 @@ compress_html: true # Minify HTML output
 compress_css: true # Minify CSS output
 compress_js: true # Minify JavaScript output
 use_async_scripts: true # Load non-critical scripts with async attribute
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+# Jekyll processing optimization
+future: false
+unpublished: false
+safe: false
+disable_disk_cache: false
+profile: false
