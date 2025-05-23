@@ -27,6 +27,15 @@ task = "shell.exec"
 args = "bundle exec jekyll serve --host=0.0.0.0 --port=5000"
 waitForPort = 5000
 
+[[workflows.workflow]]
+name = "unzip - replec"
+mode = "sequential"
+author = 43021890
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "unzip zip.zip ALL"
+
 [deployment]
 run = ["sh", "-c", "bundle exec jekyll serve --host=0.0.0.0 --port=5000"]
 
