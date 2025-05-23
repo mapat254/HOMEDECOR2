@@ -1,3 +1,4 @@
+
 {% comment %}
 Usage examples:
 - Basic usage: 
@@ -30,14 +31,9 @@ Usage examples:
   {% assign final_image_src = default_image | relative_url %}
 {% endif %}
 
-{% comment %} Fallback to generated image if enabled {% endcomment %}
-{% if include.generate_from_title and include.title and site.generate_images_from_title == true and image_src == nil %}
-  {% capture encoded_title %}{{ include.title | url_encode }}{% endcapture %}
-  {% assign final_image_src = 'https://source.unsplash.com/600x400/?' | append: encoded_title %}
-{% endif %}
-
 <div class="responsive-image-container {% if include.wrapper_class %}{{ include.wrapper_class }}{% endif %}"
      data-title="{{ include.alt | default: site.title }}"
+     data-default-image="{{ default_image | relative_url }}"
      {% if include.generate_from_title %}data-generated="true"{% endif %}>
   <noscript>
     <img src="{{ final_image_src }}" 

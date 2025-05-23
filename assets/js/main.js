@@ -375,12 +375,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!img.hasAttribute('data-error-handled')) {
         img.setAttribute('data-error-handled', 'true');
         img.addEventListener('error', function() {
+          const container = this.closest('.responsive-image-container');
+          const defaultImage = container ? container.getAttribute('data-default-image') : '/assets/images/default-thumbnail.svg';
+          
           // Set the site's default image
-          this.src = defaultImagePath;
+          this.src = defaultImage;
           this.classList.add('image-fallback');
           
           // Add label for broken image
-          const container = this.closest('.responsive-image-container');
           if (container && !container.querySelector('.broken-image-label')) {
             // Get the title/alt to use in the broken image notice
             const title = container.getAttribute('data-title') || this.alt || 'Image';
