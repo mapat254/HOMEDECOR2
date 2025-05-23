@@ -207,7 +207,11 @@ th { background-color: var(--widget-bg); font-weight: 600; }
 
 .mobile-menu-toggle { display: none; }
 
-.site-footer { background-color: var(--footer-bg); color: var(--footer-text); padding: 30px 0; }
+.header-ad-container { padding: 1rem 0; background-color: var(--light-bg, #f8f9fa); border-bottom: 1px solid var(--border-color); }
+
+.content { margin-bottom: 2rem; }
+
+.site-footer { background-color: var(--footer-bg); color: var(--footer-text); padding: 30px 0; margin-top: auto; }
 
 .site-footer .footer-top { padding-bottom: 30px; border-bottom: 1px solid var(--border-color); }
 
@@ -637,7 +641,7 @@ pre code { padding: 0; background-color: transparent; border-radius: 0; }
 
 .widget.popular-posts-widget .popular-posts-list .popular-post-item .post-info .post-meta { display: flex; font-size: 0.8rem; color: var(--meta-color); gap: 0.75rem; }
 
-.widget.categories-widget .categories-list { list-style: none; padding: 0; margin: 0; }
+.widget.categories-widget .categories-list { list-style: none; padding: 0; margin: 0; max-height: 300px; overflow-y: auto; }
 
 .widget.categories-widget .categories-list li { margin-bottom: 0; border-bottom: 1px solid var(--border-color-light, rgba(0, 0, 0, 0.05)); }
 

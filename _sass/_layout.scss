@@ -222,11 +222,24 @@
   display: none;
 }
 
+// Header Ad Container
+.header-ad-container {
+  padding: 1rem 0;
+  background-color: var(--light-bg, #f8f9fa);
+  border-bottom: 1px solid var(--border-color);
+}
+
+// Main content area
+.content {
+  margin-bottom: 2rem;
+}
+
 // Footer
 .site-footer {
   background-color: var(--footer-bg);
   color: var(--footer-text);
   padding: $spacing-unit 0;
+  margin-top: auto;
   
   .footer-top {
     padding-bottom: $spacing-unit;

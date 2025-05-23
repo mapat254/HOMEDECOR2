@@ -7,6 +7,26 @@
   <div class="wrapper">
     {% include header.html %}
     
+    <!-- Header AdSense Ad -->
+    {% if site.adsense.client_id and site.adsense.enable_page_level_ads %}
+    <div class="header-ad-container">
+      <div class="container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense.client_id }}"
+             crossorigin="anonymous"></script>
+        <!-- HEADER -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="{{ site.adsense.client_id }}"
+             data-ad-slot="{{ site.adsense.ad_slots.header }}"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+    {% endif %}
+    
     <main class="content" aria-label="Content">
       <div class="container">
         <div class="row">

@@ -90,7 +90,7 @@ disqus:
 
 # AdSense
 adsense:
-  client_id: ca-pub-9069342675580767
+  client_id: ca-pub-2501282943430263
   enable_page_level_ads: true
   enable_in_article_ads: true
   enable_sidebar_ads: true
@@ -98,10 +98,10 @@ adsense:
   popup_timeout: 5 # in seconds
   posts_per_home: 10
   ad_slots:
-    header: 6093362563
-    sidebar: 6093362563
-    in_article: 6093362563
-    footer: 6093362563
+    header: 9766157847
+    sidebar: 9766157847
+    in_article: 9766157847
+    footer: 9766157847
   # Positioning of ads in article (word count)
   article_ad_positions:
     - 150  # First ad after 150 words
