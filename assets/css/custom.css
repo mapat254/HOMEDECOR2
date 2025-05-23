@@ -1,0 +1,28 @@
+/* Custom CSS fixes */
+
+/* Fix for navigation alignment - ensures all items including Contact are aligned properly */
+.site-navigation .nav-menu > li {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.site-navigation .nav-menu > li > a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+  white-space: nowrap;
+}
+
+/* Specifically target the last item which might be Contact */
+.site-navigation .nav-menu > li:last-child {
+  margin-right: 0;
+}
+
+/* Ensure consistent styling across all navigation items */
+.site-navigation .nav-menu > li > a {
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
