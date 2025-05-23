@@ -49,7 +49,11 @@ module Jekyll
       end
       
       # If all else fails, create a timestamp-based slug as final fallback
-      document.data["slug"] = "content-#{Time.now.to_i}" if document.data["slug"].to_s.strip.empty?
+      if document.data["slug"].to_s.strip.empty?
+        document.data["slug"] = document.respond_to?(:date) ? 
+          "post-#{document.date.strftime('%Y-%m-%d')}" : 
+          "page-#{Time.now.to_i}"
+      end
     end
     
     def slugify(string)
