@@ -693,23 +693,31 @@ pre code { padding: 0; background-color: transparent; border-radius: 0; }
 
 .widget.popular-posts-widget .popular-posts-list .popular-post-item .post-info .post-meta { display: flex; font-size: 0.8rem; color: var(--meta-color); gap: 0.75rem; }
 
-.widget.categories-widget .categories-list { display: flex; flex-wrap: wrap; gap: 0.65rem; list-style: none; padding: 0; margin: 0; max-height: 300px; overflow-y: auto; }
+.widget.categories-widget .categories-list { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0; max-height: 280px; overflow-y: auto; }
 
 .widget.categories-widget .categories-list li { margin-bottom: 0; }
 
-.widget.categories-widget .categories-list .category-item { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background-color: var(--tag-bg); color: var(--text-color); border-radius: 25px; font-size: 0.85rem; font-weight: 500; transition: all 0.25s ease; position: relative; overflow: hidden; z-index: 1; }
+.widget.categories-widget .categories-list .category-item { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.8rem; background: linear-gradient(135deg, var(--tag-bg) 0%, rgba(255, 255, 255, 0.9) 100%); color: var(--text-color); border-radius: 18px; font-size: 0.75rem; font-weight: 500; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; border: 1px solid rgba(0, 0, 0, 0.05); text-decoration: none; }
 
-.widget.categories-widget .categories-list .category-item:before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%; background-color: var(--link-color); z-index: -1; transition: width 0.25s ease; }
+.widget.categories-widget .categories-list .category-item:before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(135deg, var(--link-color) 0%, #667eea 100%); transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1; }
 
-.widget.categories-widget .categories-list .category-item:hover { color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+.widget.categories-widget .categories-list .category-item:hover { color: white; transform: translateY(-1px) scale(1.02); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); border-color: transparent; }
 
-.widget.categories-widget .categories-list .category-item:hover:before { width: 100%; }
+.widget.categories-widget .categories-list .category-item:hover:before { left: 0; }
 
-.widget.categories-widget .categories-list .category-item:hover .category-count { background-color: rgba(255, 255, 255, 0.2); color: white; }
+.widget.categories-widget .categories-list .category-item:hover .category-count { background-color: rgba(255, 255, 255, 0.25); color: white; border-color: rgba(255, 255, 255, 0.3); }
 
-.widget.categories-widget .categories-list .category-item .category-name { font-weight: 500; }
+.widget.categories-widget .categories-list .category-item .category-name { font-weight: 500; line-height: 1.2; }
 
-.widget.categories-widget .categories-list .category-item .category-count { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 0.4rem; font-size: 0.7rem; font-weight: 600; border-radius: 10px; background-color: rgba(0, 0, 0, 0.1); color: var(--text-color); transition: all 0.25s ease; }
+.widget.categories-widget .categories-list .category-item .category-count { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 0.35rem; font-size: 0.65rem; font-weight: 600; border-radius: 9px; background-color: rgba(0, 0, 0, 0.08); color: var(--text-color); border: 1px solid rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
+
+.widget.categories-widget .categories-list::-webkit-scrollbar { width: 4px; }
+
+.widget.categories-widget .categories-list::-webkit-scrollbar-track { background: var(--light-bg, #f1f1f1); border-radius: 2px; }
+
+.widget.categories-widget .categories-list::-webkit-scrollbar-thumb { background: var(--link-color); border-radius: 2px; opacity: 0.7; }
+
+.widget.categories-widget .categories-list::-webkit-scrollbar-thumb:hover { background: var(--link-hover-color, #0056b3); }
 
 .widget.tags-widget .tags-cloud { display: flex; flex-wrap: wrap; gap: 0.65rem; }
 
