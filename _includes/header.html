@@ -11,25 +11,27 @@
         </a>
       </div>
       
-      <nav class="site-navigation">
-        {% include navigation.html %}
-      </nav>
-      
-      <div class="header-actions">
-        <div class="search-toggle">
-          <button id="search-toggle-btn" aria-label="Search">
-            <i data-feather="search"></i>
-          </button>
-        </div>
+      <div class="header-right">
+        <nav class="site-navigation d-none d-lg-flex">
+          {% include navigation.html %}
+        </nav>
         
-        <div class="dark-mode-toggle">
-          {% include dark-mode-toggle.html %}
-        </div>
-        
-        <div class="mobile-menu-toggle d-lg-none">
-          <button id="menu-toggle-btn" aria-label="Menu">
-            <i data-feather="menu"></i>
-          </button>
+        <div class="header-actions">
+          <div class="search-toggle">
+            <button id="search-toggle-btn" aria-label="Search">
+              <i data-feather="search"></i>
+            </button>
+          </div>
+          
+          <div class="dark-mode-toggle">
+            {% include dark-mode-toggle.html %}
+          </div>
+          
+          <div class="mobile-menu-toggle d-lg-none">
+            <button id="menu-toggle-btn" aria-label="Menu">
+              <i data-feather="menu"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>

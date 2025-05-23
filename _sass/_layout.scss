@@ -12,12 +12,12 @@
     justify-content: space-between;
     padding: 0.75rem 0;
     min-height: 60px;
-    gap: 2rem;
   }
   
   .site-branding {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     
     .site-logo {
       display: block;
@@ -35,10 +35,20 @@
     }
   }
   
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    
+    @media (max-width: 991px) {
+      gap: 0.75rem;
+    }
+  }
+  
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     
     button {
       background: transparent;
@@ -90,10 +100,8 @@
 
 // Site Navigation
 .site-navigation {
-  flex: 1;
   display: flex;
-  justify-content: center;
-  margin: 0 2rem;
+  align-items: center;
   
   .nav-menu {
     display: flex;
@@ -101,22 +109,30 @@
     margin: 0;
     padding: 0;
     align-items: center;
+    gap: 0.5rem;
     
     > li {
       position: relative;
       
       > a {
         display: block;
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 1rem;
         color: var(--text-color);
-        font-weight: 600;
-        font-size: 0.9rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.85rem;
+        letter-spacing: 0.01em;
         transition: all 0.3s ease;
+        border-radius: 6px;
+        white-space: nowrap;
         
         &:hover {
           color: var(--link-color);
+          background-color: rgba(var(--link-color-rgb, 74, 108, 247), 0.1);
+        }
+        
+        &.active {
+          color: var(--link-color);
+          background-color: rgba(var(--link-color-rgb, 74, 108, 247), 0.15);
         }
       }
       
