@@ -28,7 +28,7 @@
   </g>
   
   <!-- Buildify Text -->
-  <text x="120" y="80" class="logo-text" fill="#333333" font-size="48">Buildify</text>
+  <text x="120" y="80" class="logo-text" fill="#333333" font-size="48">cartlab</text>
   <text x="330" y="80" class="logo-text" fill="#4285F4" font-size="48">.web.id</text>
   
   <!-- Tagline -->
