@@ -177,11 +177,11 @@ th { background-color: var(--widget-bg); font-weight: 600; }
 
 .site-navigation { display: flex; align-items: center; }
 
-.site-navigation .nav-menu { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; gap: 0.5rem; }
+.site-navigation .nav-menu { display: flex; list-style: none; margin: 0; padding: 0; align-items: center; gap: 0.25rem; }
 
-.site-navigation .nav-menu > li { position: relative; }
+.site-navigation .nav-menu > li { position: relative; display: flex; align-items: center; height: 40px; }
 
-.site-navigation .nav-menu > li > a { display: block; padding: 0.6rem 1rem; color: var(--text-color); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.01em; transition: all 0.3s ease; border-radius: 6px; white-space: nowrap; }
+.site-navigation .nav-menu > li > a { display: flex; align-items: center; height: 100%; padding: 0 1rem; color: var(--text-color); font-weight: 500; font-size: 0.85rem; letter-spacing: 0.01em; transition: all 0.3s ease; border-radius: 6px; white-space: nowrap; text-decoration: none; line-height: 1; }
 
 .site-navigation .nav-menu > li > a:hover { color: var(--link-color); background-color: rgba(var(--link-color-rgb, 74, 108, 247), 0.1); }
 
