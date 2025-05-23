@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <meta http-equiv="X-Robots-Tag" content="index, follow" />
+
+
+  <title>Tag | Buildify</title>
+  <meta property="og:title" content="Tag" />
+  <meta name="twitter:title" content="Tag" />
+
+
+
+  <meta name="description" content="Your global hub for smart home innovation and modern property solutions" />
+  <meta property="og:description" content="Your global hub for smart home innovation and modern property solutions" />
+  <meta name="twitter:description" content="Your global hub for smart home innovation and modern property solutions" />
+
+
+
+  <link rel="canonical" href="http://0.0.0.0:5000/tags/" />
+  <meta property="og:url" content="http://0.0.0.0:5000/tags/" />
+  <meta name="twitter:url" content="http://0.0.0.0:5000/tags/" />
+
+
+
+  <meta property="og:image" content="http://0.0.0.0:5000/assets/img/default-post-image.svg" />
+  <meta name="twitter:image" content="http://0.0.0.0:5000/assets/img/default-post-image.svg" />
+
+
+
+  <meta property="og:type" content="website" />
+
+
+
+
+
+
+
+  <meta name="twitter:site" content="@yourusername" />
+  <meta name="twitter:creator" content="@yourusername" />
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+
+  <meta name="keywords" content="smart home, property technology, home automation, smart property, real estate, smart living, IoT, buildify" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<link rel="alternate" type="application/rss+xml" title="Buildify" href="/feed.xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+<!-- Additional SEO-specific tags that might not be covered by our custom meta tags -->
+
+<!-- Load AdSense script once -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9069342675580767" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <div class="wrapper">
+    <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="site-branding">
+        <a href="/" class="site-logo">
+          
+          <img src="/assets/img/buildify-logo.svg" alt="Buildify" class="logo-img">
+          
+        </a>
+      </div>
+      
+      <nav class="site-navigation">
+        <ul class="nav-menu">
+  
+    
+      <li><a href=""></a></li>
+    
+  
+    
+      <li><a href=""></a></li>
+    
+  
+</ul>
+      </nav>
+      
+      <div class="header-actions">
+        <div class="search-toggle">
+          <button id="search-toggle-btn" aria-label="Search">
+            <i data-feather="search"></i>
+          </button>
+        </div>
+        
+        <div class="dark-mode-toggle">
+          <div class="theme-toggle">
+  <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+    <i data-feather="sun" class="light-icon"></i>
+    <i data-feather="moon" class="dark-icon"></i>
+  </button>
+</div>
+
+        </div>
+        
+        <div class="mobile-menu-toggle d-lg-none">
+          <button id="menu-toggle-btn" aria-label="Menu">
+            <i data-feather="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="searchBox" class="search-box">
+      <div class="search-form">
+  <form action="/search/" method="get" role="search" id="search-form">
+    <div class="input-group">
+      <input type="search" name="q" id="search-input" class="form-control" placeholder="Search..." aria-label="Search" autocomplete="off">
+      <button type="submit" class="search-btn" id="search-submit-btn">
+        <i data-feather="search"></i>
+      </button>
+    </div>
+  </form>
+  <div id="live-search-results" class="live-search-results"></div>
+</div>
+<script>
+// Ensure search-form is initialized immediately when this component loads
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  const searchSubmitBtn = document.getElementById('search-submit-btn');
+  const liveSearchResults = document.getElementById('live-search-results');
+  let searchIndex = [];
+  
+  if (searchForm && searchInput) {
+    console.log('Search form component loaded');
+    
+    // Add direct click handler to search button
+    if (searchSubmitBtn) {
+      searchSubmitBtn.addEventListener('click', function(e) {
+        if (searchInput.value.trim().length < 2) {
+          e.preventDefault();
+          console.log('Search prevented - query too short');
+          searchInput.focus();
+          return false;
+        }
+      });
+    }
+    
+    // Load search index for live search
+    fetch('/search.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Search data loaded successfully:', data.length, 'items');
+        searchIndex = data;
+        
+        // Set up live search
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase().trim();
+          
+          // Hide live search results if query is empty
+          if (query.length < 2) {
+            if (liveSearchResults) {
+              liveSearchResults.innerHTML = '';
+              liveSearchResults.style.display = 'none';
+            }
+            return;
+          }
+          
+          const results = searchIndex.filter(item => {
+            const titleMatch = item.title.toLowerCase().includes(query);
+            const contentMatch = item.content && item.content.toLowerCase().includes(query);
+            const tagsMatch = item.tags && item.tags.some(tag => tag.toLowerCase().includes(query));
+            const categoryMatch = item.categories && item.categories.some(category => category.toLowerCase().includes(query));
+            
+            return titleMatch || contentMatch || tagsMatch || categoryMatch;
+          }).slice(0, 5); // Limit live search results to 5 items
+          
+          // Display live search results
+          if (liveSearchResults) {
+            if (results.length === 0) {
+              liveSearchResults.innerHTML = `<p>No results found for "${query}"</p>`;
+              liveSearchResults.style.display = 'block';
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            } else {
+              let html = '<ul class="live-search-list">';
+              
+              results.forEach(result => {
+                // Make sure the URL is correct
+                const resultUrl = result.url.startsWith('/') ? result.url : '/' + result.url;
+                
+                html += `
+                  <li class="live-search-item">
+                    <a href="${resultUrl}">
+                      <span class="live-search-title">${result.title}</span>
+                      <span class="live-search-category">${result.categories && result.categories.length > 0 ? result.categories[0] : ''}</span>
+                    </a>
+                  </li>
+                `;
+              });
+              
+              html += `
+                <li class="live-search-more">
+                  <a href="/search/?q=${encodeURIComponent(query)}">View all results</a>
+                </li>
+              `;
+              html += '</ul>';
+              
+              liveSearchResults.innerHTML = html;
+              liveSearchResults.style.display = 'block';
+              
+              // Trigger animation after a tiny delay to ensure display:block has been applied
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            }
+          }
+        });
+        
+        // Hide live search results when clicking outside
+        document.addEventListener('click', function(e) {
+          if (liveSearchResults && !searchInput.contains(e.target) && !liveSearchResults.contains(e.target)) {
+            // Animate the fade out
+            liveSearchResults.classList.remove('active');
+            
+            // Hide after transition completes
+            setTimeout(() => {
+              liveSearchResults.style.display = 'none';
+            }, 200);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error loading search data:', error);
+      });
+  }
+});
+</script>
+
+    </div>
+  </div>
+  
+  <div id="mobileMenu" class="mobile-menu d-lg-none">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <div class="mobile-search">
+          <div class="search-form">
+  <form action="/search/" method="get" role="search" id="search-form">
+    <div class="input-group">
+      <input type="search" name="q" id="search-input" class="form-control" placeholder="Search..." aria-label="Search" autocomplete="off">
+      <button type="submit" class="search-btn" id="search-submit-btn">
+        <i data-feather="search"></i>
+      </button>
+    </div>
+  </form>
+  <div id="live-search-results" class="live-search-results"></div>
+</div>
+<script>
+// Ensure search-form is initialized immediately when this component loads
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  const searchSubmitBtn = document.getElementById('search-submit-btn');
+  const liveSearchResults = document.getElementById('live-search-results');
+  let searchIndex = [];
+  
+  if (searchForm && searchInput) {
+    console.log('Search form component loaded');
+    
+    // Add direct click handler to search button
+    if (searchSubmitBtn) {
+      searchSubmitBtn.addEventListener('click', function(e) {
+        if (searchInput.value.trim().length < 2) {
+          e.preventDefault();
+          console.log('Search prevented - query too short');
+          searchInput.focus();
+          return false;
+        }
+      });
+    }
+    
+    // Load search index for live search
+    fetch('/search.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Search data loaded successfully:', data.length, 'items');
+        searchIndex = data;
+        
+        // Set up live search
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase().trim();
+          
+          // Hide live search results if query is empty
+          if (query.length < 2) {
+            if (liveSearchResults) {
+              liveSearchResults.innerHTML = '';
+              liveSearchResults.style.display = 'none';
+            }
+            return;
+          }
+          
+          const results = searchIndex.filter(item => {
+            const titleMatch = item.title.toLowerCase().includes(query);
+            const contentMatch = item.content && item.content.toLowerCase().includes(query);
+            const tagsMatch = item.tags && item.tags.some(tag => tag.toLowerCase().includes(query));
+            const categoryMatch = item.categories && item.categories.some(category => category.toLowerCase().includes(query));
+            
+            return titleMatch || contentMatch || tagsMatch || categoryMatch;
+          }).slice(0, 5); // Limit live search results to 5 items
+          
+          // Display live search results
+          if (liveSearchResults) {
+            if (results.length === 0) {
+              liveSearchResults.innerHTML = `<p>No results found for "${query}"</p>`;
+              liveSearchResults.style.display = 'block';
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            } else {
+              let html = '<ul class="live-search-list">';
+              
+              results.forEach(result => {
+                // Make sure the URL is correct
+                const resultUrl = result.url.startsWith('/') ? result.url : '/' + result.url;
+                
+                html += `
+                  <li class="live-search-item">
+                    <a href="${resultUrl}">
+                      <span class="live-search-title">${result.title}</span>
+                      <span class="live-search-category">${result.categories && result.categories.length > 0 ? result.categories[0] : ''}</span>
+                    </a>
+                  </li>
+                `;
+              });
+              
+              html += `
+                <li class="live-search-more">
+                  <a href="/search/?q=${encodeURIComponent(query)}">View all results</a>
+                </li>
+              `;
+              html += '</ul>';
+              
+              liveSearchResults.innerHTML = html;
+              liveSearchResults.style.display = 'block';
+              
+              // Trigger animation after a tiny delay to ensure display:block has been applied
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            }
+          }
+        });
+        
+        // Hide live search results when clicking outside
+        document.addEventListener('click', function(e) {
+          if (liveSearchResults && !searchInput.contains(e.target) && !liveSearchResults.contains(e.target)) {
+            // Animate the fade out
+            liveSearchResults.classList.remove('active');
+            
+            // Hide after transition completes
+            setTimeout(() => {
+              liveSearchResults.style.display = 'none';
+            }, 200);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error loading search data:', error);
+      });
+  }
+});
+</script>
+
+        </div>
+      </div>
+      <nav class="mobile-navigation">
+        <ul class="nav-menu">
+  
+    
+      <li><a href=""></a></li>
+    
+  
+    
+      <li><a href=""></a></li>
+    
+  
+</ul>
+      </nav>
+    </div>
+  </div>
+  
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+</header>
+
+    
+    <main class="content" aria-label="Content">
+      <div class="container">
+        <div class="row">
+          <div class="container mt-4">
+  <div class="tags-header mb-4">
+    <h1 class="tags-title mb-2">Tag</h1>
+    <p class="tags-description">Eksplorasi semua artikel berdasarkan tag. Klik pada tag untuk melihat semua artikel terkait.</p>
+  </div>
+  
+  <div class="tags-cloud-section mb-5">
+    
+    
+      
+      
+      
+      
+      
+      <a href="/tag/beginners/" class="tag-item" style="font-size: 90%">
+        beginners
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/design-style/" class="tag-item" style="font-size: 85%">
+        design style
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/design-style-a/" class="tag-item" style="font-size: 85%">
+        design style a
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/home-interiors/" class="tag-item" style="font-size: 85%">
+        home interiors
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/home-interiors-a/" class="tag-item" style="font-size: 85%">
+        home interiors a
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/minimalist-home/" class="tag-item" style="font-size: 85%">
+        minimalist home
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/minimalist-home-interiors/" class="tag-item" style="font-size: 85%">
+        minimalist home interiors
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/scandinavian-design/" class="tag-item" style="font-size: 85%">
+        scandinavian design
+      </a>
+    
+      
+      
+      
+      
+      
+      <a href="/tag/scandinavian-design-style/" class="tag-item" style="font-size: 85%">
+        scandinavian design style
+      </a>
+    
+  </div>
+  
+  <div class="tags-list">
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="beginners" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>beginners
+          <a href="/tag/beginners/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/scandinavian-design-style-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Scandinavian Design Style: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide" 
+         alt="Scandinavian Design Style: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide"
+    
+    alt="Scandinavian Design Style: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Scandinavian</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="u-url">Scandinavian Design Style: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:27:48+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="scandinavian design style, design style a, scandinavian design, design style, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you captivated by the clean lines, functional elegance, and inherent coziness of **cartlab.web.id**? Then you’ve likely encountered...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Scandinavian Design Style: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/minimalist-home-interiors-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Minimalist Home Interiors: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide" 
+         alt="Minimalist Home Interiors: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide"
+    
+    alt="Minimalist Home Interiors: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Minimalist</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="u-url">Minimalist Home Interiors: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:26:01+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="minimalist home interiors, home interiors a, minimalist home, home interiors, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you dreaming of a serene, clutter-free living space? Embracing minimalist home interiors can transform your home into...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Minimalist Home Interiors: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="design style" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>design style
+          <a href="/tag/design-style/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/scandinavian-design-style-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Scandinavian Design Style: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide" 
+         alt="Scandinavian Design Style: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide"
+    
+    alt="Scandinavian Design Style: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Scandinavian</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="u-url">Scandinavian Design Style: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:27:48+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="scandinavian design style, design style a, scandinavian design, design style, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you captivated by the clean lines, functional elegance, and inherent coziness of **cartlab.web.id**? Then you’ve likely encountered...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Scandinavian Design Style: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="design style a" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>design style a
+          <a href="/tag/design-style-a/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/scandinavian-design-style-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Scandinavian Design Style: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide" 
+         alt="Scandinavian Design Style: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide"
+    
+    alt="Scandinavian Design Style: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Scandinavian</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="u-url">Scandinavian Design Style: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:27:48+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="scandinavian design style, design style a, scandinavian design, design style, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you captivated by the clean lines, functional elegance, and inherent coziness of **cartlab.web.id**? Then you’ve likely encountered...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Scandinavian Design Style: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="home interiors" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>home interiors
+          <a href="/tag/home-interiors/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/minimalist-home-interiors-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Minimalist Home Interiors: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide" 
+         alt="Minimalist Home Interiors: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide"
+    
+    alt="Minimalist Home Interiors: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Minimalist</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="u-url">Minimalist Home Interiors: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:26:01+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="minimalist home interiors, home interiors a, minimalist home, home interiors, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you dreaming of a serene, clutter-free living space? Embracing minimalist home interiors can transform your home into...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Minimalist Home Interiors: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="home interiors a" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>home interiors a
+          <a href="/tag/home-interiors-a/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/minimalist-home-interiors-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Minimalist Home Interiors: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide" 
+         alt="Minimalist Home Interiors: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide"
+    
+    alt="Minimalist Home Interiors: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Minimalist</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="u-url">Minimalist Home Interiors: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:26:01+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="minimalist home interiors, home interiors a, minimalist home, home interiors, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you dreaming of a serene, clutter-free living space? Embracing minimalist home interiors can transform your home into...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Minimalist Home Interiors: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="minimalist home" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>minimalist home
+          <a href="/tag/minimalist-home/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/minimalist-home-interiors-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Minimalist Home Interiors: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide" 
+         alt="Minimalist Home Interiors: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide"
+    
+    alt="Minimalist Home Interiors: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Minimalist</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="u-url">Minimalist Home Interiors: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:26:01+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="minimalist home interiors, home interiors a, minimalist home, home interiors, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you dreaming of a serene, clutter-free living space? Embracing minimalist home interiors can transform your home into...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Minimalist Home Interiors: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="minimalist home interiors" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>minimalist home interiors
+          <a href="/tag/minimalist-home-interiors/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/minimalist-home-interiors-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Minimalist Home Interiors: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide" 
+         alt="Minimalist Home Interiors: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Minimalist+Home+Interiors%3A+A+Beginners+Guide"
+    
+    alt="Minimalist Home Interiors: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Minimalist</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="u-url">Minimalist Home Interiors: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:26:01+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="minimalist home interiors, home interiors a, minimalist home, home interiors, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you dreaming of a serene, clutter-free living space? Embracing minimalist home interiors can transform your home into...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/minimalist-home-interiors-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Minimalist Home Interiors: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="scandinavian design" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>scandinavian design
+          <a href="/tag/scandinavian-design/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/scandinavian-design-style-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Scandinavian Design Style: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide" 
+         alt="Scandinavian Design Style: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide"
+    
+    alt="Scandinavian Design Style: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Scandinavian</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="u-url">Scandinavian Design Style: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:27:48+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="scandinavian design style, design style a, scandinavian design, design style, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you captivated by the clean lines, functional elegance, and inherent coziness of **cartlab.web.id**? Then you’ve likely encountered...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Scandinavian Design Style: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+      
+      
+      
+      <div class="tag-group mb-5">
+        <h2 id="scandinavian design style" class="tag-group-title mb-3">
+          <i class="fas fa-tag me-2"></i>scandinavian design style
+          <a href="/tag/scandinavian-design-style/" class="tag-view-all">Lihat semua</a>
+        </h2>
+        
+        <div class="row">
+          
+            <div class="col-md-6 col-lg-4 post-grid-item mb-4">
+              <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/scandinavian-design-style-a-beginners-guide" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Scandinavian Design Style: A Beginners Guide"
+     data-generated="true">
+  <noscript>
+    <img src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide" 
+         alt="Scandinavian Design Style: A Beginners Guide" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    
+      src="/assets/img/default-post-image.svg" 
+      data-src="https://source.unsplash.com/300x200/?Scandinavian+Design+Style%3A+A+Beginners+Guide"
+    
+    alt="Scandinavian Design Style: A Beginners Guide" 
+    class="responsive-image " 
+    loading="lazy" 
+    
+    
+    
+  >
+  
+</div>
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Scandinavian</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="u-url">Scandinavian Design Style: A Beginners Guide</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T00:27:48+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="scandinavian design style, design style a, scandinavian design, design style, beginners">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Are you captivated by the clean lines, functional elegance, and inherent coziness of **cartlab.web.id**? Then you’ve likely encountered...
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/scandinavian-design-style-a-beginners-guide" class="btn-readmore" aria-label="Baca artikel Scandinavian Design Style: A Beginners Guide">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+            </div>
+          
+        </div>
+        
+        
+      </div>
+    
+  </div>
+  
+  <div class="category-section mt-5">
+    <h2 class="section-title mb-4">Telusuri berdasarkan Kategori</h2>
+    <div class="categories-menu">
+      
+      
+        
+        
+        
+        <a href="/category/minimalist/" class="category-link">
+          Minimalist <span class="category-count">(1)</span>
+        </a>
+      
+        
+        
+        
+        <a href="/category/scandinavian/" class="category-link">
+          Scandinavian <span class="category-count">(1)</span>
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Tags Page Styles */
+  .tags-header {
+    background-color: var(--widget-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .tags-title {
+    font-size: 1.75rem;
+    color: var(--heading-color);
+  }
+  
+  .tags-description {
+    color: var(--meta-color);
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .tags-cloud-section {
+    background-color: var(--widget-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .tag-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    border-radius: 3px;
+    background-color: var(--bg-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    line-height: 1.3;
+    min-width: auto;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  
+  .tag-item:hover {
+    background-color: #28a745;
+    color: white;
+    transform: translateY(-3px);
+    border-color: #28a745;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+  }
+  
+  .tag-group-title {
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--heading-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .tag-group-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #28a745;
+  }
+  
+  .tag-group-title i {
+    color: #28a745;
+  }
+  
+  .tag-view-all {
+    font-size: 0.9rem;
+    color: #28a745;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .tag-view-all:hover {
+    color: #218838;
+    text-decoration: underline;
+  }
+  
+  .section-title {
+    position: relative;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--heading-color);
+  }
+  
+  .section-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #0d6efd;
+  }
+  
+  .categories-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+  
+  .category-link {
+    display: inline-block;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 0.6rem 1.5rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    min-width: 140px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  
+  .category-link:hover {
+    background-color: #0d6efd;
+    color: white;
+    transform: translateY(-3px);
+    border-color: #0d6efd;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.2);
+  }
+  
+  .category-count {
+    font-size: 0.8rem;
+    color: var(--meta-color);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .tags-cloud-section {
+      padding: 1.5rem;
+    }
+    
+    .tag-item {
+      padding: 0.25rem 0.7rem;
+      margin: 0.3rem;
+    }
+    
+    .tag-group-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .tags-header {
+      padding: 1.25rem;
+    }
+    
+    .tags-title {
+      font-size: 1.5rem;
+    }
+    
+    .tags-description {
+      font-size: 0.9rem;
+    }
+    
+    .tags-cloud-section {
+      padding: 1.25rem;
+    }
+    
+    .tag-group-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .tag-view-all {
+      margin-top: 0.5rem;
+    }
+    
+    .category-link {
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+        </div>
+      </div>
+    </main>
+    
+    <footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="footer-info">
+            <h3>Buildify</h3>
+            <p>Your global hub for smart home innovation and modern property solutions</p>
+            <div class="social-links">
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-2">
+          <div class="footer-links">
+            <h4>Tentang</h4>
+            <ul>
+              <li><a href="/about/">About Us</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="footer-links">
+            <h4>Kategori</h4>
+            <ul>
+              <li><a href="/category/interior/">Interior Design</a></li>
+              <li><a href="/category/exterior/">Exterior Design</a></li>
+              <li><a href="/category/garden/">Garden & Landscape</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="/terms/">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="copyright">
+        <p>&copy; 2025 Buildify. All rights reserved.</p>
+      </div>
+      
+      <div class="back-to-top">
+        <a href="#" id="back-to-top-btn" aria-label="Back to top">
+          <i data-feather="chevron-up"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+  });
+</script>
+
+  </div>
+
+  
+<div id="popup-ad-container" class="popup-ad-container">
+  <div class="popup-ad-content">
+    <div class="popup-ad-header">
+      <p>Iklan</p>
+      <span id="popup-ad-countdown">5</span>
+    </div>
+    <button id="popup-ad-close" class="popup-ad-close" aria-label="Tutup iklan">&times;</button>
+    <div class="popup-ad-loader" id="popup-ad-loader">
+      <div class="popup-ad-loading-spinner"></div>
+      <p>Memuat iklan...</p>
+    </div>
+    <div class="popup-ad" id="popup-ad-content">
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-9069342675580767"
+          data-ad-slot="8714679131"
+          data-ad-format="horizontal"
+          data-full-width-responsive="false"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            onerror: function() {
+              document.getElementById('popup-ad-loader').style.display = 'none';
+            },
+            onload: function() {
+              document.getElementById('popup-ad-loader').style.display = 'none';
+            }
+          });
+      </script>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk mengatur cookie
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    
+    // Fungsi untuk mendapatkan cookie
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+    
+    // Cek apakah iklan sudah ditampilkan dalam 1 hari terakhir
+    if (getCookie('popup_ad_closed') === 'true') {
+      return;
+    }
+    
+    // Tampilkan popup setelah 5 detik
+    setTimeout(function() {
+      var popupAdContainer = document.getElementById('popup-ad-container');
+      if (popupAdContainer) {
+        popupAdContainer.classList.add('show');
+        
+        // Countdown timer
+        var countdownElement = document.getElementById('popup-ad-countdown');
+        var countdown = 5;
+        
+        var countdownInterval = setInterval(function() {
+          countdown--;
+          if (countdownElement) {
+            countdownElement.textContent = countdown;
+          }
+          
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            var closeButton = document.getElementById('popup-ad-close');
+            if (closeButton) {
+              closeButton.classList.add('active');
+            }
+          }
+        }, 1000);
+        
+        // Auto close setelah waktu yang ditentukan di _config.yml
+        setTimeout(function() {
+          closePopupAd();
+        }, 5 * 1000);
+      }
+    }, 5000); // 5 detik delay sebelum menampilkan
+    
+    // Event listener tombol tutup
+    var closeButton = document.getElementById('popup-ad-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', function() {
+        // Cek jika countdown sudah selesai
+        if (this.classList.contains('active')) {
+          closePopupAd();
+        }
+      });
+    }
+    
+    // Fungsi untuk menutup popup
+    function closePopupAd() {
+      var popupAdContainer = document.getElementById('popup-ad-container');
+      if (popupAdContainer) {
+        popupAdContainer.classList.remove('show');
+        // Simpan di cookie selama 1 hari
+        setCookie('popup_ad_closed', 'true', 1);
+      }
+    }
+  });
+</script>
+
+  
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/dark-mode.js"></script>
+  
+  
+</body>
+</html>

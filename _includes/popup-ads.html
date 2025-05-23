@@ -1,0 +1,118 @@
+{% if site.adsense.client_id and site.adsense.enable_popup_ads %}
+<div id="popup-ad-container" class="popup-ad-container">
+  <div class="popup-ad-content">
+    <div class="popup-ad-header">
+      <p>Iklan</p>
+      <span id="popup-ad-countdown">5</span>
+    </div>
+    <button id="popup-ad-close" class="popup-ad-close" aria-label="Tutup iklan">&times;</button>
+    <div class="popup-ad-loader" id="popup-ad-loader">
+      <div class="popup-ad-loading-spinner"></div>
+      <p>Memuat iklan...</p>
+    </div>
+    <div class="popup-ad" id="popup-ad-content">
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="{{ site.adsense.client_id }}"
+          data-ad-slot="{{ site.adsense.ad_slots.popup | default: '8714679131' }}"
+          data-ad-format="horizontal"
+          data-full-width-responsive="false"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            onerror: function() {
+              document.getElementById('popup-ad-loader').style.display = 'none';
+            },
+            onload: function() {
+              document.getElementById('popup-ad-loader').style.display = 'none';
+            }
+          });
+      </script>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk mengatur cookie
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    
+    // Fungsi untuk mendapatkan cookie
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+    
+    // Cek apakah iklan sudah ditampilkan dalam 1 hari terakhir
+    if (getCookie('popup_ad_closed') === 'true') {
+      return;
+    }
+    
+    // Tampilkan popup setelah 5 detik
+    setTimeout(function() {
+      var popupAdContainer = document.getElementById('popup-ad-container');
+      if (popupAdContainer) {
+        popupAdContainer.classList.add('show');
+        
+        // Countdown timer
+        var countdownElement = document.getElementById('popup-ad-countdown');
+        var countdown = 5;
+        
+        var countdownInterval = setInterval(function() {
+          countdown--;
+          if (countdownElement) {
+            countdownElement.textContent = countdown;
+          }
+          
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            var closeButton = document.getElementById('popup-ad-close');
+            if (closeButton) {
+              closeButton.classList.add('active');
+            }
+          }
+        }, 1000);
+        
+        // Auto close setelah waktu yang ditentukan di _config.yml
+        setTimeout(function() {
+          closePopupAd();
+        }, {{ site.adsense.popup_timeout | default: 10 }} * 1000);
+      }
+    }, 5000); // 5 detik delay sebelum menampilkan
+    
+    // Event listener tombol tutup
+    var closeButton = document.getElementById('popup-ad-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', function() {
+        // Cek jika countdown sudah selesai
+        if (this.classList.contains('active')) {
+          closePopupAd();
+        }
+      });
+    }
+    
+    // Fungsi untuk menutup popup
+    function closePopupAd() {
+      var popupAdContainer = document.getElementById('popup-ad-container');
+      if (popupAdContainer) {
+        popupAdContainer.classList.remove('show');
+        // Simpan di cookie selama 1 hari
+        setCookie('popup_ad_closed', 'true', 1);
+      }
+    }
+  });
+</script>
+{% endif %}

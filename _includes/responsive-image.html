@@ -1,0 +1,46 @@
+{% comment %}
+Usage examples:
+- Basic usage: 
+  {% include responsive-image.html src=page.featured_image alt=page.title %}
+
+- With additional classes:
+  {% include responsive-image.html src=page.featured_image alt=page.title class="additional-class" wrapper_class="wrapper-class" %}
+
+- Generate image from title (requires site.generate_images_from_title=true in _config.yml):
+  {% include responsive-image.html generate_from_title=true title=page.title alt=page.title %}
+{% endcomment %}
+
+{% assign image_src = include.src %}
+{% assign default_image = '/assets/img/default-post-image.svg' %}
+
+{% if include.generate_from_title and include.title and site.generate_images_from_title == true and image_src == nil %}
+  {% capture encoded_title %}{{ include.title | url_encode }}{% endcapture %}
+  {% assign image_src = 'https://source.unsplash.com/300x200/?' | append: encoded_title %}
+{% endif %}
+
+<div class="responsive-image-container {% if include.wrapper_class %}{{ include.wrapper_class }}{% endif %}"
+     data-title="{{ include.alt | default: site.title }}"
+     {% if include.generate_from_title %}data-generated="true"{% endif %}>
+  <noscript>
+    <img src="{% if image_src %}{{ image_src }}{% else %}{{ default_image }}{% endif %}" 
+         alt="{{ include.alt | default: 'Image' }}" 
+         class="responsive-image no-js {% if include.class %}{{ include.class }}{% endif %}">
+  </noscript>
+  <img 
+    {% if image_src %}
+      src="{{ default_image }}" 
+      data-src="{{ image_src }}"
+    {% else %}
+      src="{{ default_image }}"
+    {% endif %}
+    alt="{{ include.alt | default: 'Image' }}" 
+    class="responsive-image {% if include.class %}{{ include.class }}{% endif %}" 
+    loading="lazy" 
+    {% if include.src %}onerror="this.onerror=null;this.src='{{ default_image }}';this.classList.add('image-fallback');"{% endif %}
+    {% if include.width %}width="{{ include.width }}"{% endif %}
+    {% if include.height %}height="{{ include.height }}"{% endif %}
+  >
+  {% if include.caption %}
+  <figcaption class="image-caption">{{ include.caption }}</figcaption>
+  {% endif %}
+</div>

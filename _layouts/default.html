@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div class="wrapper">
+    {% include header.html %}
+    
+    <main class="content" aria-label="Content">
+      <div class="container">
+        <div class="row">
+          {{ content }}
+        </div>
+      </div>
+    </main>
+    
+    {% include footer.html %}
+  </div>
+
+  {% include popup-ads.html %}
+  
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
+  
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+</body>
+</html>

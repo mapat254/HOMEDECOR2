@@ -1,0 +1,201 @@
+# Site settings
+title: Buildify
+description: Your global hub for smart home innovation and modern property solutions
+author: Buildify Team
+email: partners@buildify.web.id
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://buildify.web.id" # the base hostname & protocol for your site
+logo: /assets/img/buildify-logo.svg
+default_image: /assets/img/default-post-image.svg
+copyright_year: © 2025
+keywords:
+  - smart home
+  - property technology
+  - home automation
+  - smart property
+  - real estate
+  - smart living
+  - IoT
+  - buildify
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+incremental: true
+include: ["_pages"]
+
+# Exclude system files and folders from processing and watching
+exclude:
+  - .local
+  - .replit
+  - .cache
+  - .config
+  - .git
+  - .jekyll-cache
+  - .bundle
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - replit.nix
+
+# Prevent regeneration of site for specific files
+keep_files:
+  - .git
+  - .jekyll-metadata
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-minifier
+  - jekyll-paginate
+
+# Minifier settings for performance optimization
+jekyll-minifier:
+  exclude: ['*.xml', '*.json', '*.txt', '*.png', '*.jpg', '*.jpeg', '*.webp', '*.svg']
+  compress_css: true
+  compress_javascript: true
+  compress_html: true
+  html_minifier_options:
+    remove_comments: true
+    remove_empty_attributes: true
+    collapse_whitespace: true
+    
+# Pagination settings
+paginate: 9
+paginate_path: "/page/:num/"
+
+# SEO settings
+twitter:
+  username: yourusername
+  card: summary_large_image
+facebook:
+  app_id: 
+  publisher: 
+  admins: 
+social:
+  name: Your Name
+  links:
+    - https://twitter.com/yourusername
+    - https://facebook.com/yourusername
+    - https://instagram.com/yourusername
+    - https://linkedin.com/in/yourusername
+
+# Analytics
+google_analytics: 
+
+# Disqus comments
+disqus:
+  shortname: your-disqus-shortname
+
+# AdSense
+adsense:
+  client_id: ca-pub-9069342675580767
+  enable_page_level_ads: true
+  enable_in_article_ads: true
+  enable_sidebar_ads: true
+  enable_popup_ads: true
+  popup_timeout: 5 # in seconds
+  posts_per_home: 10
+  ad_slots:
+    header: 6093362563
+    sidebar: 6093362563
+    in_article: 6093362563
+    footer: 6093362563
+  # Positioning of ads in article (word count)
+  article_ad_positions:
+    - 150  # First ad after 150 words
+    - 450  # Second ad after 450 words
+    - 750  # Third ad after 750 words
+
+# Collections
+# Note: We're using the built-in Jekyll category/tag system with plugin generators
+# instead of collections to fix the 404 errors
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      toc: true
+      share: true
+      related: true
+      # Default slug for posts if empty
+      slug: "post-default-slug"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      # Default slug for pages if empty
+      slug: "page-default-slug"
+  - scope:
+      path: ""
+      type: "categories"
+    values:
+      layout: "category"
+      # Default slug for categories
+      slug: "category-default-slug"
+  - scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: "tag"
+      # Default slug for tags
+      slug: "tag-default-slug"
+  # Add a fallback for any document type that doesn't have a slug
+  - scope:
+      path: ""
+    values:
+      # This provides a fallback for any document that doesn't have a slug
+      slug: "default-slug"
+
+# Custom Variables
+show_excerpts: true
+excerpt_separator: <!--more-->
+
+# Image settings
+generate_images_from_title: true # Set to true to generate images from post titles when no featured image is available
+prefer_webp: true # Use WebP format for better performance when available
+responsive_image_sizes: [300, 600, 900] # Used for responsive image srcset generation (future feature)
+
+# Widget settings - control display of different widgets
+widgets:
+  sidebar:
+    enabled: true
+    recent_posts: true
+    categories: true
+    tags: false # Default off - set ke false
+    popular_posts: true
+    advertisement: true
+  footer:
+    enabled: true
+    about: true
+    categories: true
+    recent_posts: true
+    tags: false # Default off - set ke false
+  post:
+    share_buttons: true
+    
+# Featured posts settings
+featured_posts:
+  enabled: false
+  count: 3
+  show_excerpt: false
+  excerpt_length: 100
+  title: "Artikel Unggulan"
+  display_author: true
+  display_date: true
+  display_categories: true
+
+# Navigation menu - Disabled default navigation in favor of _data/navigation.yml
+# navigation entries moved to _data/navigation.yml
+    
+# Performance optimization
+compress_html: true # Minify HTML output
+compress_css: true # Minify CSS output
+compress_js: true # Minify JavaScript output
+use_async_scripts: true # Load non-critical scripts with async attribute

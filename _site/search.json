@@ -1,0 +1,94 @@
+[
+  
+    {
+      "title"    : "Property Live Home – Smarter Way to Find Your Dream Home",
+      "categories" : [],
+      "tags"     : [],
+      "url"      : "/property-live-home/",
+      "date"     : "Apr 10, 2025",
+      "content"  : "Property Live Home – Smarter Way to Find Your Dream Home 🏡\n\nWelcome to Buildify.web.id, your trusted platform for modern property search!\nIntroducing our featured service: Property Live Home — a new and interactive way to explore homes live, from anywhere.\n\n\n\n🔍 What Is Property Live Home?\n\nProperty Live Home is a virtual home tour feature that lets you explore properties in real-time — directly from your phone or computer.\n\nWith live video tours, you can:\n\n\n  View interior and exterior features live\n  Ask questions directly to the agent during the tour\n  Learn about legal documents, payment options, and more\n\n\nPerfect for busy professionals, remote buyers, or anyone wanting more insight before visiting in person.\n\n\n\n🚀 Why Choose Property Live Home?\n\nHere’s why thousands of users love this feature:\n\n✅ Save Time &amp; Travel\nNo need to drive around — view multiple properties from your couch.\n\n✅ Transparent &amp; Interactive\nAsk questions and get instant answers from certified agents.\n\n✅ Verified Listings Only\nWe only showcase listings from trusted developers and brokers.\n\n✅ Available Across Indonesia\nFrom Jakarta to Bali, we’re expanding live access to quality homes.\n\n\n\n🏠 How to Join a Live Tour\n\nEasy steps to experience your first Live Home Tour:\n\n\n  Browse listings on Buildify.web.id\n  Look for the “Live Tour” button\n  Join via Zoom, YouTube, or Instagram Live\n  Ask your questions in real-time\n  Book an in-person visit if you’re interested\n\n\n\n\n📅 Upcoming Live Home Tours\n\n\n  \n    \n      Date\n      Location\n      Property Type\n      Watch Live\n    \n  \n  \n    \n      May 5, 2025\n      Jakarta\n      Modern Apartment\n      Watch Now\n    \n    \n      May 7, 2025\n      Bandung\n      Villa\n      Watch Now\n    \n    \n      May 9, 2025\n      Bali\n      Beachfront Villa\n      Watch Now\n    \n  \n\n\n\n  Note: Schedule may change. Visit Buildify.web.id regularly for updates.\n\n\n\n\n🏗️ List Your Property in a Live Home Tour\n\nAre you a real estate agent or property developer?\nShowcase your listings to thousands of potential buyers by joining our Property Live Home program.\n\n📧 Email us: partners@buildify.web.id\n📱 WhatsApp/Signal: +62 (555) 123-4567\n\n\n\n🔑 Find Your Next Home, the Smart Way\n\nWith Buildify’s Property Live Home, home discovery becomes simple, transparent, and even fun.\nNo more guessing — see it live, ask anything, and make confident decisions.\n\nLet us help you get one step closer to your dream home.\n\n\n\n\n\n\n\n\n",
+      "excerpt"  : "Property Live Home – Smarter Way to Find Your Dream Home 🏡 Welcome to Buildify.web.id, your trusted platform for modern property search! Introducing our featured service: Property Live Home —..."
+    }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    ,{
+      "title"    : "404 - Page Not Found",
+      "categories" : [],
+      "tags"     : [],
+      "url"      : "/404.html",
+      "date"     : "",
+      "content"  : "\n  \n    404\n    Page Not Found\n    The page you are looking for doesn't exist or has been moved.\n    Back to Home\n  \n\n",
+      "type"     : "page"
+    }
+    
+  
+    
+    ,{
+      "title"    : "Kategori",
+      "categories" : [],
+      "tags"     : [],
+      "url"      : "/categories/",
+      "date"     : "",
+      "content"  : "\n  \n    Kategori\n  \n  \n  \n    \n    \n  \n  \n  \n    Tag Populer\n    \n      \n      \n    \n  \n\n\n",
+      "type"     : "page"
+    }
+    
+  
+    
+  
+    
+    ,{
+      "title"    : "Semua Tag",
+      "categories" : [],
+      "tags"     : [],
+      "url"      : "/tag/",
+      "date"     : "",
+      "content"  : "\n  \n    Semua Tag\n    Pilih tag di bawah ini untuk melihat artikel-artikel terkait.\n  \n  \n  \n    \n      \n      \n    \n  \n  \n  \n    Lihat berdasarkan Kategori\n    \n      \n      \n    \n    \n  \n\n\n",
+      "type"     : "page"
+    }
+    
+  
+    
+    ,{
+      "title"    : "Bloggers - Profesional Jekyll Blog Template dengan Optimasi SEO",
+      "categories" : [],
+      "tags"     : [],
+      "url"      : "/",
+      "date"     : "",
+      "content"  : "",
+      "type"     : "page"
+    }
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    ,{
+      "title"    : "Tag",
+      "categories" : [],
+      "tags"     : [],
+      "url"      : "/tags/",
+      "date"     : "",
+      "content"  : "\n  \n    {{ page.title }}\n    Eksplorasi semua artikel berdasarkan tag. Klik pada tag untuk melihat semua artikel terkait.\n  \n  \n  \n    {% assign tags = site.tags | sort %}\n    {% for tag in tags %}\n      {% assign tag_name = tag[0] %}\n      {% assign tag_size = tag[1].size %}\n      {% assign tag_slug = tag_name | downcase | replace: ' ', '-' %}\n      {% assign font_size = tag_size | times: 5 | plus: 80 | at_most: 150 %}\n      \n      \n        {{ tag_name }}\n      \n    {% endfor %}\n  \n  \n  \n    {% for tag in tags %}\n      {% assign tag_name = tag[0] %}\n      {% assign tag_slug = tag_name | downcase | replace: ' ', '-' %}\n      \n      \n        \n          {{ tag_name }}\n          Lihat semua\n        \n        \n        \n          {% for post in tag[1] limit:6 %}\n            \n              {% include post-card.html post=post %}\n            \n          {% endfor %}\n        \n        \n        {% if tag[1].size > 6 %}\n          \n            \n              Lihat semua {{ tag[1].size }} artikel dengan tag ini\n            \n          \n        {% endif %}\n      \n    {% endfor %}\n  \n  \n  \n    Telusuri berdasarkan Kategori\n    \n      {% assign sorted_categories = site.categories | sort %}\n      {% for category in sorted_categories %}\n        {% assign category_name = category[0] %}\n        {% assign category_slug = category_name | downcase | replace: ' ', '-' %}\n        \n        \n          {{ category_name }} ({{ category[1].size }})\n        \n      {% endfor %}\n    \n  \n\n\n\n",
+      "type"     : "page"
+    }
+    
+  
+]

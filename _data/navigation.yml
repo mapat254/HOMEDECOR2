@@ -1,0 +1,29 @@
+
+# Main Navigation
+main:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about/"
+  - title: "Contact"
+    url: "/contact/"
+
+# Footer Navigation
+footer:
+  company:
+    - title: "About"
+      url: "/about/"
+    - title: "Home" 
+      url: "/"
+      
+  product:
+    - title: "Themes"
+      url: "/themes/"
+    - title: "Plugins"
+      url: "/plugins/"
+      
+  support:
+    - title: "Contact"
+      url: "/contact/"
+    - title: "Documentation"
+      url: "/documentation/"

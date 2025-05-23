@@ -1,0 +1,73 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="footer-info">
+            <h3>{{ site.title }}</h3>
+            <p>{{ site.description }}</p>
+            <div class="social-links">
+              {% for social in site.data.social %}
+              <a href="{{ social.url }}" target="_blank" rel="noopener" aria-label="{{ social.name }}">
+                <i data-feather="{{ social.icon }}"></i>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-2">
+          <div class="footer-links">
+            <h4>Tentang</h4>
+            <ul>
+              <li><a href="{{ '/about/' | relative_url }}">About Us</a></li>
+              <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="footer-links">
+            <h4>Kategori</h4>
+            <ul>
+              <li><a href="{{ '/category/interior/' | relative_url }}">Interior Design</a></li>
+              <li><a href="{{ '/category/exterior/' | relative_url }}">Exterior Design</a></li>
+              <li><a href="{{ '/category/garden/' | relative_url }}">Garden & Landscape</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></li>
+              <li><a href="{{ '/terms/' | relative_url }}">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="copyright">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      </div>
+      
+      <div class="back-to-top">
+        <a href="#" id="back-to-top-btn" aria-label="Back to top">
+          <i data-feather="chevron-up"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+  });
+</script>
