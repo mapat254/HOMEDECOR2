@@ -5,13 +5,13 @@ layout: default
   
   <div class="latest-posts">
     <h2 class="section-title">Artikel Terbaru</h2>
-    <div class="post-grid">
-      <div class="row">
+    <div class="post-grid-container">
+      <div class="post-grid">
         {% assign post_limit = site.adsense.posts_per_home | default: 12 %}
         {% assign displayed_posts = 0 %}
         {% for post in site.posts %}
           {% if displayed_posts < post_limit %}
-            <div class="col-md-6 post-grid-item">
+            <div class="post-grid-item">
               {% include post-card.html post=post %}
             </div>
             {% assign displayed_posts = displayed_posts | plus: 1 %}
