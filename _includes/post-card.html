@@ -2,10 +2,10 @@
   <div class="post-card-inner">
     <a href="{{ include.post.url | relative_url }}" class="post-card-image-link u-url" itemprop="url">
       {% include responsive-image.html 
-        src=include.post.featured_image 
+        src=include.post.image 
         alt=include.post.title 
         wrapper_class="post-card-image"
-        generate_from_title=true
+        generate_from_title=false
         title=include.post.title
       %}
       
