@@ -5,143 +5,453 @@
     <description>Your global hub for smart home innovation and modern property solutions</description>
     <link>http://0.0.0.0:5000/</link>
     <atom:link href="http://0.0.0.0:5000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 22 May 2025 23:31:19 +0000</pubDate>
-    <lastBuildDate>Thu, 22 May 2025 23:31:19 +0000</lastBuildDate>
+    <pubDate>Fri, 23 May 2025 07:41:06 +0000</pubDate>
+    <lastBuildDate>Fri, 23 May 2025 07:41:06 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
     
       <item>
-        <title>Property Live Home – Smarter Way to Find Your Dream Home</title>
+        <title>Seasonal Design Trends: A Look at Whats Hot This Season</title>
         
-        <description>&lt;h1 id=&quot;property-live-home--smarter-way-to-find-your-dream-home-&quot;&gt;Property Live Home – Smarter Way to Find Your Dream Home 🏡&lt;/h1&gt;
+        <description>&lt;h2 id=&quot;tendencias-de-diseño-de-temporada-un-vistazo-a-lo-que-está-de-moda-esta-temporada&quot;&gt;Tendencias de Diseño de Temporada: Un Vistazo a Lo Que Está de Moda Esta Temporada&lt;/h2&gt;
 
-&lt;p&gt;Welcome to &lt;strong&gt;Buildify.web.id&lt;/strong&gt;, your trusted platform for modern property search!&lt;br /&gt;
-Introducing our featured service: &lt;strong&gt;Property Live Home&lt;/strong&gt; — a new and interactive way to explore homes &lt;strong&gt;live&lt;/strong&gt;, from anywhere.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-what-is-property-live-home&quot;&gt;🔍 What Is Property Live Home?&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Property Live Home&lt;/strong&gt; is a virtual home tour feature that lets you &lt;strong&gt;explore properties in real-time&lt;/strong&gt; — directly from your phone or computer.&lt;/p&gt;
-
-&lt;p&gt;With live video tours, you can:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;View interior and exterior features live&lt;/li&gt;
-  &lt;li&gt;Ask questions directly to the agent during the tour&lt;/li&gt;
-  &lt;li&gt;Learn about legal documents, payment options, and more&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Perfect for busy professionals, remote buyers, or anyone wanting more insight before visiting in person.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-why-choose-property-live-home&quot;&gt;🚀 Why Choose Property Live Home?&lt;/h2&gt;
-
-&lt;p&gt;Here’s why thousands of users love this feature:&lt;/p&gt;
-
-&lt;p&gt;✅ &lt;strong&gt;Save Time &amp;amp; Travel&lt;/strong&gt;&lt;br /&gt;
-No need to drive around — view multiple properties from your couch.&lt;/p&gt;
-
-&lt;p&gt;✅ &lt;strong&gt;Transparent &amp;amp; Interactive&lt;/strong&gt;&lt;br /&gt;
-Ask questions and get instant answers from certified agents.&lt;/p&gt;
-
-&lt;p&gt;✅ &lt;strong&gt;Verified Listings Only&lt;/strong&gt;&lt;br /&gt;
-We only showcase listings from trusted developers and brokers.&lt;/p&gt;
-
-&lt;p&gt;✅ &lt;strong&gt;Available Across Indonesia&lt;/strong&gt;&lt;br /&gt;
-From Jakarta to Bali, we’re expanding live access to quality homes.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-how-to-join-a-live-tour&quot;&gt;🏠 How to Join a Live Tour&lt;/h2&gt;
-
-&lt;p&gt;Easy steps to experience your first &lt;strong&gt;Live Home Tour&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Browse listings&lt;/strong&gt; on Buildify.web.id&lt;/li&gt;
-  &lt;li&gt;Look for the &lt;strong&gt;“Live Tour”&lt;/strong&gt; button&lt;/li&gt;
-  &lt;li&gt;Join via Zoom, YouTube, or Instagram Live&lt;/li&gt;
-  &lt;li&gt;Ask your questions in real-time&lt;/li&gt;
-  &lt;li&gt;Book an in-person visit if you’re interested&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-upcoming-live-home-tours&quot;&gt;📅 Upcoming Live Home Tours&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Date&lt;/th&gt;
-      &lt;th&gt;Location&lt;/th&gt;
-      &lt;th&gt;Property Type&lt;/th&gt;
-      &lt;th&gt;Watch Live&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;May 5, 2025&lt;/td&gt;
-      &lt;td&gt;Jakarta&lt;/td&gt;
-      &lt;td&gt;Modern Apartment&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;#&quot;&gt;Watch Now&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;May 7, 2025&lt;/td&gt;
-      &lt;td&gt;Bandung&lt;/td&gt;
-      &lt;td&gt;Villa&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;#&quot;&gt;Watch Now&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;May 9, 2025&lt;/td&gt;
-      &lt;td&gt;Bali&lt;/td&gt;
-      &lt;td&gt;Beachfront Villa&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;#&quot;&gt;Watch Now&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Note: Schedule may change. Visit Buildify.web.id regularly for updates.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;️-list-your-property-in-a-live-home-tour&quot;&gt;🏗️ List Your Property in a Live Home Tour&lt;/h2&gt;
-
-&lt;p&gt;Are you a real estate agent or property developer?&lt;br /&gt;
-Showcase your listings to thousands of potential buyers by joining our &lt;strong&gt;Property Live Home&lt;/strong&gt; program.&lt;/p&gt;
-
-&lt;p&gt;📧 Email us: &lt;strong&gt;partners@buildify.web.id&lt;/strong&gt;&lt;br /&gt;
-📱 WhatsApp/Signal: &lt;strong&gt;+62 (555) 123-4567&lt;/strong&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;-find-your-next-home-the-smart-way&quot;&gt;🔑 Find Your Next Home, the Smart Way&lt;/h2&gt;
-
-&lt;p&gt;With Buildify’s &lt;strong&gt;Property Live Home&lt;/strong&gt;, home discovery becomes simple, transparent, and even fun.&lt;br /&gt;
-No more guessing — see it live, ask anything, and make confident decisions.&lt;/p&gt;
-
-&lt;p&gt;Let us help you get one step closer to your dream home.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;script async=&quot;&quot; src=&quot;https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9069342675580767&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
-
-&lt;!-- Property Live Home Ad --&gt;
-&lt;p&gt;&lt;ins class=&quot;adsbygoogle&quot; style=&quot;display:block&quot; data-ad-client=&quot;ca-pub-9069342675580767&quot; data-ad-slot=&quot;6093362563&quot; data-ad-format=&quot;auto&quot; data-full-width-responsive=&quot;true&quot;&gt;&lt;/ins&gt;
-&lt;script&gt;
-     (adsbygoogle = window.adsbygoogle || []).push({});
-&lt;/script&gt;&lt;/p&gt;
 </description>
         
-        <pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
-        <link>http://0.0.0.0:5000/property-live-home/</link>
-        <guid isPermaLink="true">http://0.0.0.0:5000/property-live-home/</guid>
+        <pubDate>Fri, 23 May 2025 07:24:10 +0000</pubDate>
+        <link>http://0.0.0.0:5000/seasonal-design-trends-a-look-at-whats-hot-this-season</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/seasonal-design-trends-a-look-at-whats-hot-this-season</guid>
         
+          
+            <category>seasonal design trends</category>
+          
+            <category>design trends a</category>
+          
+            <category>seasonal design</category>
+          
+            <category>design trends</category>
+          
+            <category>look</category>
           
         
         
+          
+            <category>Seasonal</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Smart Home Integration: A Beginners Guide</title>
+        
+        <description>&lt;h2 id=&quot;smart-home-integration-a-beginners-guide&quot;&gt;Smart Home Integration: A Beginner’s Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:23:21 +0000</pubDate>
+        <link>http://0.0.0.0:5000/smart-home-integration-a-beginners-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/smart-home-integration-a-beginners-guide</guid>
+        
+          
+            <category>smart home integration</category>
+          
+            <category>home integration a</category>
+          
+            <category>smart home</category>
+          
+            <category>home integration</category>
+          
+            <category>beginners</category>
+          
+        
+        
+          
+            <category>Smart</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Home Renovation Planning: A Complete Guide</title>
+        
+        <description>&lt;h2 id=&quot;home-renovation-planning-a-complete-guide&quot;&gt;Home Renovation Planning: A Complete Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:23:19 +0000</pubDate>
+        <link>http://0.0.0.0:5000/home-renovation-planning-a-complete-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/home-renovation-planning-a-complete-guide</guid>
+        
+          
+            <category>home renovation planning</category>
+          
+            <category>renovation planning a</category>
+          
+            <category>home renovation</category>
+          
+            <category>renovation planning</category>
+          
+            <category>complete</category>
+          
+        
+        
+          
+            <category>Home</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Choosing a Home Designer: A Complete Guide</title>
+        
+        <description>&lt;h2 id=&quot;choosing-a-home-designer-a-complete-guide&quot;&gt;Choosing a Home Designer: A Complete Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:23:19 +0000</pubDate>
+        <link>http://0.0.0.0:5000/choosing-a-home-designer-a-complete-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/choosing-a-home-designer-a-complete-guide</guid>
+        
+          
+            <category>choosing a home</category>
+          
+            <category>a home designer</category>
+          
+            <category>choosing a</category>
+          
+            <category>a home</category>
+          
+            <category>complete</category>
+          
+        
+        
+          
+            <category>Choosing</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Feng Shui Home Design: Den Ultimative Guide</title>
+        
+        <description>&lt;h2 id=&quot;feng-shui-home-design-den-ultimative-guide&quot;&gt;Feng Shui Home Design: Den Ultimative Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:23:15 +0000</pubDate>
+        <link>http://0.0.0.0:5000/feng-shui-home-design-den-ultimative-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/feng-shui-home-design-den-ultimative-guide</guid>
+        
+          
+            <category>feng shui home</category>
+          
+            <category>shui home design</category>
+          
+            <category>feng shui</category>
+          
+            <category>shui home</category>
+          
+            <category>ultimative</category>
+          
+        
+        
+          
+            <category>Feng</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Common Home Design Mistakes: Avoiding Costly Errors</title>
+        
+        <description>&lt;h2 id=&quot;erreurs-courantes-de-conception-de-maison--éviter-les-erreurs-coûteuses&quot;&gt;Erreurs courantes de conception de maison : éviter les erreurs coûteuses&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:23:14 +0000</pubDate>
+        <link>http://0.0.0.0:5000/common-home-design-mistakes-avoiding-costly-errors</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/common-home-design-mistakes-avoiding-costly-errors</guid>
+        
+          
+            <category>common home design</category>
+          
+            <category>home design mistakes</category>
+          
+            <category>common home</category>
+          
+            <category>home design</category>
+          
+            <category>avoiding</category>
+          
+        
+        
+          
+            <category>Common</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Budget-friendly design tips: Decorating on a Dime</title>
+        
+        <description>&lt;h2 id=&quot;budgetvenlige-designtips-indretning-på-et-stramt-budget&quot;&gt;Budgetvenlige designtips: Indretning på et stramt budget&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:23:00 +0000</pubDate>
+        <link>http://0.0.0.0:5000/budget-friendly-design-tips-decorating-on-a-dime</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/budget-friendly-design-tips-decorating-on-a-dime</guid>
+        
+          
+            <category>budget friendly design</category>
+          
+            <category>decorating on a</category>
+          
+            <category>budget friendly</category>
+          
+            <category>friendly design</category>
+          
+            <category>dime</category>
+          
+        
+        
+          
+            <category>Budget-friendly</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Window and Door Material Choices: A Comprehensive Guide</title>
+        
+        <description>&lt;h2 id=&quot;window-and-door-material-choices-a-comprehensive-guide&quot;&gt;Window and Door Material Choices: A Comprehensive Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:56 +0000</pubDate>
+        <link>http://0.0.0.0:5000/window-and-door-material-choices-a-comprehensive-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/window-and-door-material-choices-a-comprehensive-guide</guid>
+        
+          
+            <category>door material choices</category>
+          
+            <category>material choices a</category>
+          
+            <category>door material</category>
+          
+            <category>material choices</category>
+          
+            <category>window</category>
+          
+        
+        
+          
+            <category>Window</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>How to plan home design</title>
+        
+        <description>&lt;h2 id=&quot;how-to-plan-home-design-a-comprehensive-guide&quot;&gt;How to Plan Home Design: A Comprehensive Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:53 +0000</pubDate>
+        <link>http://0.0.0.0:5000/how-to-plan-home-design</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/how-to-plan-home-design</guid>
+        
+          
+            <category>to plan home</category>
+          
+            <category>plan home design</category>
+          
+            <category>to plan</category>
+          
+            <category>plan home</category>
+          
+        
+        
+          
+            <category>How</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Wall Panel and Cladding Options: A Comprehensive Guide</title>
+        
+        <description>&lt;h2 id=&quot;wall-panel-and-cladding-options-a-comprehensive-guide&quot;&gt;Wall Panel and Cladding Options: A Comprehensive Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:51 +0000</pubDate>
+        <link>http://0.0.0.0:5000/wall-panel-and-cladding-options-a-comprehensive-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/wall-panel-and-cladding-options-a-comprehensive-guide</guid>
+        
+          
+            <category>cladding options a</category>
+          
+            <category>options a comprehensive</category>
+          
+            <category>wall panel</category>
+          
+            <category>cladding options</category>
+          
+            <category>guide</category>
+          
+        
+        
+          
+            <category>Wall</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Natural Stone in Design: Timeless Elegance and Modern Applications</title>
+        
+        <description>&lt;h2 id=&quot;pietra-naturale-nel-design-eleganza-senza-tempo-e-applicazioni-moderne&quot;&gt;Pietra Naturale nel Design: Eleganza Senza Tempo e Applicazioni Moderne&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:36 +0000</pubDate>
+        <link>http://0.0.0.0:5000/natural-stone-in-design-timeless-elegance-and-modern-applications</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/natural-stone-in-design-timeless-elegance-and-modern-applications</guid>
+        
+          
+            <category>natural stone in</category>
+          
+            <category>stone in design</category>
+          
+            <category>natural stone</category>
+          
+            <category>stone in</category>
+          
+            <category>timeless</category>
+          
+        
+        
+          
+            <category>Natural</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Concrete in Home Design: A Beginners Guide</title>
+        
+        <description>&lt;h2 id=&quot;concrete-in-home-design-a-beginners-guide&quot;&gt;Concrete in Home Design: A Beginner’s Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:33 +0000</pubDate>
+        <link>http://0.0.0.0:5000/concrete-in-home-design-a-beginners-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/concrete-in-home-design-a-beginners-guide</guid>
+        
+          
+            <category>concrete in home</category>
+          
+            <category>in home design</category>
+          
+            <category>concrete in</category>
+          
+            <category>in home</category>
+          
+            <category>beginners</category>
+          
+        
+        
+          
+            <category>Concrete</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Flooring Types and Trends: A Complete Guide</title>
+        
+        <description>&lt;h2 id=&quot;flooring-types-and-trends-a-complete-guide&quot;&gt;Flooring Types and Trends: A Complete Guide&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:31 +0000</pubDate>
+        <link>http://0.0.0.0:5000/flooring-types-and-trends-a-complete-guide</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/flooring-types-and-trends-a-complete-guide</guid>
+        
+          
+            <category>trends a complete</category>
+          
+            <category>a complete guide</category>
+          
+            <category>flooring types</category>
+          
+            <category>trends a</category>
+          
+        
+        
+          
+            <category>Flooring</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Open Floor Plan Designs: De Ultieme Gids</title>
+        
+        <description>&lt;h2 id=&quot;open-floor-plan-designs-de-ultieme-gids&quot;&gt;Open Floor Plan Designs: De Ultieme Gids&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:11 +0000</pubDate>
+        <link>http://0.0.0.0:5000/open-floor-plan-designs-de-ultieme-gids</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/open-floor-plan-designs-de-ultieme-gids</guid>
+        
+          
+            <category>open floor plan</category>
+          
+            <category>floor plan designs</category>
+          
+            <category>open floor</category>
+          
+            <category>floor plan</category>
+          
+            <category>ultieme</category>
+          
+        
+        
+          
+            <category>Open</category>
+          
+        
+      </item>
+    
+      <item>
+        <title>Laundry Room Design: Maximizing Space and Style</title>
+        
+        <description>&lt;h2 id=&quot;vaskeri-design-maksimering-af-plads-og-stil&quot;&gt;Vaskeri Design: Maksimering af Plads og Stil&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Fri, 23 May 2025 07:22:07 +0000</pubDate>
+        <link>http://0.0.0.0:5000/laundry-room-design-maximizing-space-and-style</link>
+        <guid isPermaLink="true">http://0.0.0.0:5000/laundry-room-design-maximizing-space-and-style</guid>
+        
+          
+            <category>laundry room design</category>
+          
+            <category>room design maximizing</category>
+          
+            <category>laundry room</category>
+          
+            <category>room design</category>
+          
+            <category>space</category>
+          
+        
+        
+          
+            <category>Laundry</category>
           
         
       </item>
