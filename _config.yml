@@ -23,6 +23,13 @@ markdown: kramdown
 permalink: /:title/
 incremental: true
 include: ["_pages"]
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 # Exclude system files and folders from processing and watching
 exclude:
@@ -37,6 +44,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - replit.nix
+  - node_modules
+  - "*.tmp"
+  - "*.bak"
+  - .sass-cache
+  - .DS_Store
 
 # Prevent regeneration of site for specific files
 keep_files:
@@ -151,7 +163,7 @@ defaults:
       path: ""
     values:
       # This provides a fallback for any document that doesn't have a slug
-      slug: "default-slug"
+      slug: "default-post"
 
 # Custom Variables
 show_excerpts: true

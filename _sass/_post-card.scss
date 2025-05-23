@@ -209,26 +209,28 @@
   
   .post-grid-item {
     margin-bottom: 2rem;
-    height: 100%;
     display: flex;
     padding: 0 15px;
   }
   
   .row {
     margin: 0 -15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 0;
+    align-items: stretch;
     
-    @media (min-width: 768px) {
-      display: flex;
-      flex-wrap: wrap;
-      
-      .col-md-6 {
-        width: 50%;
-        
-        // Force 2 columns
-        &:nth-child(2n+1) {
-          clear: left;
-        }
-      }
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+      margin: 0 -10px;
     }
   }
   

@@ -12,6 +12,7 @@
     justify-content: space-between;
     padding: 0.75rem 0;
     min-height: 60px;
+    gap: 2rem;
   }
   
   .site-branding {
@@ -89,13 +90,17 @@
 
 // Site Navigation
 .site-navigation {
-  background-color: var(--navbar-bg);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem;
   
   .nav-menu {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
     
     > li {
       position: relative;

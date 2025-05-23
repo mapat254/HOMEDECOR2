@@ -165,6 +165,9 @@
   // Categories widget
   &.categories-widget {
     .categories-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
       list-style: none;
       padding: 0;
       margin: 0;
@@ -173,61 +176,66 @@
       
       li {
         margin-bottom: 0;
-        border-bottom: 1px solid var(--border-color-light, rgba(0,0,0,0.05));
-        
-        &:last-child {
-          border-bottom: none;
-        }
       }
       
       .category-item {
-        display: flex;
-        justify-content: space-between;
+        display: inline-flex;
         align-items: center;
-        padding: 0.85rem 0;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background-color: var(--tag-bg);
         color: var(--text-color);
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 500;
         transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background-color: var(--link-color);
+          z-index: -1;
+          transition: width 0.25s ease;
+        }
         
         &:hover {
-          color: var(--link-color);
-          transform: translateX(5px);
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          
+          &:before {
+            width: 100%;
+          }
           
           .category-count {
-            background-color: var(--link-color);
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
           }
         }
         
         .category-name {
-          position: relative;
-          padding-left: 1.5rem;
           font-weight: 500;
-          
-          &:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 8px;
-            height: 8px;
-            border-radius: 2px;
-            background-color: var(--link-color);
-            transform: translateY(-50%) rotate(45deg);
-            transition: transform 0.3s ease;
-          }
         }
         
         .category-count {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          min-width: 24px;
-          height: 24px;
-          padding: 0 0.5rem;
-          font-size: 0.75rem;
+          min-width: 20px;
+          height: 20px;
+          padding: 0 0.4rem;
+          font-size: 0.7rem;
           font-weight: 600;
-          border-radius: 12px;
-          background-color: var(--tag-bg);
+          border-radius: 10px;
+          background-color: rgba(0, 0, 0, 0.1);
+          color: var(--text-color);
           transition: all 0.25s ease;
         }
       }
