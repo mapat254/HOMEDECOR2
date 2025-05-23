@@ -1011,11 +1011,13 @@ body { transition: background-color 0.3s ease, color 0.3s ease; }
 
 .related-posts .related-post-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
 
-.related-posts .related-post-image { height: 150px; overflow: hidden; }
+.related-posts .related-post-image { height: 180px; overflow: hidden; background-color: var(--light-bg, #f8f9fa); }
 
-.related-posts .related-post-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+.related-posts .related-post-image .responsive-image { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.3s ease; display: block; }
 
-.related-posts .related-post-image:hover img { transform: scale(1.05); }
+.related-posts .related-post-image .responsive-image.image-fallback { object-fit: contain; background-color: var(--light-bg, #f8f9fa); padding: 15px; }
+
+.related-posts .related-post-link:hover .responsive-image { transform: scale(1.05); }
 
 .related-posts .related-post-content { padding: 1rem; flex-grow: 1; display: flex; flex-direction: column; }
 
@@ -1025,7 +1027,19 @@ body { transition: background-color 0.3s ease, color 0.3s ease; }
 
 .related-posts .related-post-content h4 a:hover { color: var(--primary-color); }
 
-.related-posts .related-post-content .related-post-meta { margin-top: auto; font-size: 0.85rem; color: var(--text-muted); }
+.related-posts .related-post-content .related-post-meta { margin-top: auto; font-size: 0.85rem; color: var(--meta-color); display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.related-posts .related-post-content .related-post-meta .post-date, .related-posts .related-post-content .related-post-meta .post-category { display: flex; align-items: center; gap: 0.3rem; }
+
+.related-posts .related-post-content .related-post-meta .post-date i, .related-posts .related-post-content .related-post-meta .post-category i { width: 14px; height: 14px; opacity: 0.7; }
+
+.related-posts .related-post-content .related-post-meta .post-category { color: var(--primary-color); font-weight: 500; }
+
+.related-posts .related-post-content .related-post-excerpt { margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-color); opacity: 0.8; line-height: 1.4; }
+
+.related-posts .related-post-content .related-post-title a { color: var(--heading-color); text-decoration: none; transition: color 0.3s ease; }
+
+.related-posts .related-post-content .related-post-title a:hover { color: var(--primary-color); }
 
 .popup-ad-container { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; display: flex; justify-content: center; }
 

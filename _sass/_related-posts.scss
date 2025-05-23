@@ -39,19 +39,28 @@
   }
 
   .related-post-image {
-    height: 150px;
+    height: 180px;
     overflow: hidden;
+    background-color: var(--light-bg, #f8f9fa);
     
-    img {
+    .responsive-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       transition: transform 0.3s ease;
+      display: block;
+      
+      &.image-fallback {
+        object-fit: contain;
+        background-color: var(--light-bg, #f8f9fa);
+        padding: 15px;
+      }
     }
-    
-    &:hover img {
-      transform: scale(1.05);
-    }
+  }
+  
+  .related-post-link:hover .responsive-image {
+    transform: scale(1.05);
   }
 
   .related-post-content {
@@ -79,7 +88,47 @@
     .related-post-meta {
       margin-top: auto;
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--meta-color);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      
+      .post-date, .post-category {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        
+        i {
+          width: 14px;
+          height: 14px;
+          opacity: 0.7;
+        }
+      }
+      
+      .post-category {
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+    }
+    
+    .related-post-excerpt {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+    
+    .related-post-title {
+      a {
+        color: var(--heading-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
     }
   }
 }
