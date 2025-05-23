@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           
           const results = searchIndex.filter(item => {
-            const titleMatch = item.title.toLowerCase().includes(query);
-            const contentMatch = item.content.toLowerCase().includes(query);
-            const tagsMatch = item.tags && item.tags.some(tag => tag.toLowerCase().includes(query));
-            const categoryMatch = item.categories && item.categories.some(category => category.toLowerCase().includes(query));
+            const titleMatch = item.title && item.title.toLowerCase().includes(query);
+            const contentMatch = item.content && item.content.toLowerCase().includes(query);
+            const tagsMatch = item.tags && item.tags.some(tag => tag && tag.toLowerCase().includes(query));
+            const categoryMatch = item.categories && item.categories.some(category => category && category.toLowerCase().includes(query));
             
             return titleMatch || contentMatch || tagsMatch || categoryMatch;
           }).slice(0, 5); // Limit live search results to 5 items
@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
               results.forEach(result => {
                 html += `
                   <li class="live-search-item">
-                    <a href="${window.location.origin}${result.url}">
-                      <span class="live-search-title">${result.title}</span>
-                      <span class="live-search-category">${result.categories ? result.categories[0] : ''}</span>
+                    <a href="${result.url}">
+                      <span class="live-search-title">${result.title || 'Untitled'}</span>
+                      <span class="live-search-category">${result.categories && result.categories.length ? result.categories[0] : ''}</span>
                     </a>
                   </li>
                 `;
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
               
               html += `
                 <li class="live-search-more">
-                  <a href="${window.location.origin}/search/?q=${encodeURIComponent(query)}">View all results</a>
+                  <a href="/search/?q=${encodeURIComponent(query)}">View all results</a>
                 </li>
               `;
               html += '</ul>';
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Hide live search results when clicking outside
         document.addEventListener('click', function(e) {
-          if (liveSearchResults && !searchInput.contains(e.target) && !liveSearchResults.contains(e.target)) {
+          if (liveSearchResults && searchInput && !searchInput.contains(e.target) && !liveSearchResults.contains(e.target)) {
             liveSearchResults.style.display = 'none';
           }
         });
@@ -106,10 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           
           const results = searchIndex.filter(item => {
-            const titleMatch = item.title.toLowerCase().includes(query);
-            const contentMatch = item.content.toLowerCase().includes(query);
-            const tagsMatch = item.tags && item.tags.some(tag => tag.toLowerCase().includes(query));
-            const categoryMatch = item.categories && item.categories.some(category => category.toLowerCase().includes(query));
+            const titleMatch = item.title && item.title.toLowerCase().includes(query);
+            const contentMatch = item.content && item.content.toLowerCase().includes(query);
+            const tagsMatch = item.tags && item.tags.some(tag => tag && tag.toLowerCase().includes(query));
+            const categoryMatch = item.categories && item.categories.some(category => category && category.toLowerCase().includes(query));
             
             return titleMatch || contentMatch || tagsMatch || categoryMatch;
           });
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Register click handler to hide live search results
   document.addEventListener('click', function(e) {
-    if (liveSearchResults && !searchInput?.contains(e.target) && !liveSearchResults.contains(e.target)) {
+    if (liveSearchResults && searchInput && !searchInput.contains(e.target) && !liveSearchResults.contains(e.target)) {
       liveSearchResults.style.display = 'none';
     }
   });
