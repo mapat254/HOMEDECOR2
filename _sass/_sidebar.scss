@@ -104,12 +104,35 @@
         .post-thumbnail {
           flex: 0 0 80px;
           margin-right: 1rem;
+          border-radius: $border-radius-sm;
+          overflow: hidden;
+          background-color: var(--light-bg, #f8f9fa);
           
-          img {
+          .popular-post-image {
             width: 100%;
             height: 60px;
-            object-fit: cover;
+            position: relative;
+            overflow: hidden;
             border-radius: $border-radius-sm;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+              transition: transform 0.3s ease;
+              display: block;
+              
+              &.image-fallback {
+                object-fit: contain;
+                background-color: var(--light-bg, #f8f9fa);
+                padding: 5px;
+              }
+            }
+            
+            &:hover img {
+              transform: scale(1.05);
+            }
           }
         }
         

@@ -369,15 +369,17 @@ pre code { padding: 0; background-color: transparent; border-radius: 0; }
 
 .post-card .post-card-image-link { display: block; position: relative; overflow: hidden; }
 
-.post-card .post-card-image-link .post-card-image { height: 240px; /* Ketinggian yang lebih baik untuk tampilan 2 kolom */ overflow: hidden; position: relative; cursor: pointer; }
+.post-card .post-card-image-link .post-card-image { height: 240px; overflow: hidden; position: relative; cursor: pointer; background-color: var(--light-bg, #f8f9fa); }
 
 .post-card .post-card-image-link .post-card-image::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.3s ease; z-index: 1; }
 
 .post-card .post-card-image-link .post-card-image:hover::before { opacity: 1; }
 
-.post-card .post-card-image-link .post-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; /* Match with featured posts */ display: block; }
+.post-card .post-card-image-link .post-card-image .responsive-image { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s ease; display: block; }
 
-.post-card .post-card-image-link:hover img { transform: scale(1.05); /* Match with featured posts */ }
+.post-card .post-card-image-link .post-card-image .responsive-image.image-fallback { object-fit: contain; background-color: var(--light-bg, #f8f9fa); padding: 20px; }
+
+.post-card .post-card-image-link:hover .responsive-image { transform: scale(1.05); }
 
 .post-card .post-card-image-link .post-card-categories { position: absolute; bottom: 15px; /* Match position with featured posts */ left: 15px; z-index: 2; }
 
@@ -617,9 +619,15 @@ pre code { padding: 0; background-color: transparent; border-radius: 0; }
 
 .widget.popular-posts-widget .popular-posts-list .popular-post-item { display: flex; align-items: flex-start; }
 
-.widget.popular-posts-widget .popular-posts-list .popular-post-item .post-thumbnail { flex: 0 0 80px; margin-right: 1rem; }
+.widget.popular-posts-widget .popular-posts-list .popular-post-item .post-thumbnail { flex: 0 0 80px; margin-right: 1rem; border-radius: 2px; overflow: hidden; background-color: var(--light-bg, #f8f9fa); }
 
-.widget.popular-posts-widget .popular-posts-list .popular-post-item .post-thumbnail img { width: 100%; height: 60px; object-fit: cover; border-radius: 2px; }
+.widget.popular-posts-widget .popular-posts-list .popular-post-item .post-thumbnail .popular-post-image { width: 100%; height: 60px; position: relative; overflow: hidden; border-radius: 2px; }
+
+.widget.popular-posts-widget .popular-posts-list .popular-post-item .post-thumbnail .popular-post-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.3s ease; display: block; }
+
+.widget.popular-posts-widget .popular-posts-list .popular-post-item .post-thumbnail .popular-post-image img.image-fallback { object-fit: contain; background-color: var(--light-bg, #f8f9fa); padding: 5px; }
+
+.widget.popular-posts-widget .popular-posts-list .popular-post-item .post-thumbnail .popular-post-image:hover img { transform: scale(1.05); }
 
 .widget.popular-posts-widget .popular-posts-list .popular-post-item .post-info { flex: 1; }
 

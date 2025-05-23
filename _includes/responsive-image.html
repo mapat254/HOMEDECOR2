@@ -13,30 +13,43 @@ Usage examples:
 {% assign image_src = include.src %}
 {% assign default_image = '/assets/img/default-post-image.svg' %}
 
+{% comment %} Handle different image sources {% endcomment %}
+{% if image_src %}
+  {% comment %} Check if it's an external URL {% endcomment %}
+  {% if image_src contains 'http://' or image_src contains 'https://' %}
+    {% assign final_image_src = image_src %}
+  {% else %}
+    {% comment %} Handle internal/relative paths {% endcomment %}
+    {% if image_src contains '/assets/' %}
+      {% assign final_image_src = image_src | relative_url %}
+    {% else %}
+      {% assign final_image_src = '/assets/img/' | append: image_src | relative_url %}
+    {% endif %}
+  {% endif %}
+{% else %}
+  {% assign final_image_src = default_image | relative_url %}
+{% endif %}
+
+{% comment %} Fallback to generated image if enabled {% endcomment %}
 {% if include.generate_from_title and include.title and site.generate_images_from_title == true and image_src == nil %}
   {% capture encoded_title %}{{ include.title | url_encode }}{% endcapture %}
-  {% assign image_src = 'https://source.unsplash.com/300x200/?' | append: encoded_title %}
+  {% assign final_image_src = 'https://source.unsplash.com/600x400/?' | append: encoded_title %}
 {% endif %}
 
 <div class="responsive-image-container {% if include.wrapper_class %}{{ include.wrapper_class }}{% endif %}"
      data-title="{{ include.alt | default: site.title }}"
      {% if include.generate_from_title %}data-generated="true"{% endif %}>
   <noscript>
-    <img src="{% if image_src %}{{ image_src }}{% else %}{{ default_image }}{% endif %}" 
+    <img src="{{ final_image_src }}" 
          alt="{{ include.alt | default: 'Image' }}" 
          class="responsive-image no-js {% if include.class %}{{ include.class }}{% endif %}">
   </noscript>
   <img 
-    {% if image_src %}
-      src="{{ default_image }}" 
-      data-src="{{ image_src }}"
-    {% else %}
-      src="{{ default_image }}"
-    {% endif %}
+    src="{{ final_image_src }}"
     alt="{{ include.alt | default: 'Image' }}" 
     class="responsive-image {% if include.class %}{{ include.class }}{% endif %}" 
     loading="lazy" 
-    {% if include.src %}onerror="this.onerror=null;this.src='{{ default_image }}';this.classList.add('image-fallback');"{% endif %}
+    onerror="this.onerror=null;this.src='{{ default_image | relative_url }}';this.classList.add('image-fallback');"
     {% if include.width %}width="{{ include.width }}"{% endif %}
     {% if include.height %}height="{{ include.height }}"{% endif %}
   >

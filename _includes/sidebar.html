@@ -16,10 +16,10 @@
               <a href="{{ post.url | relative_url }}" class="popular-post-item">
                 <div class="post-thumbnail">
                   {% include responsive-image.html 
-                    src=post.featured_image 
+                    src=post.image 
                     alt=post.title 
                     wrapper_class="popular-post-image" 
-                    generate_from_title=true 
+                    generate_from_title=false 
                     title=post.title
                   %}
                 </div>
