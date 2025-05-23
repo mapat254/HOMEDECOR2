@@ -50,16 +50,152 @@
   <meta name="keywords" content="smart home, property technology, home automation, smart property, real estate, smart living, IoT, buildify" />
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="/assets/css/styles.css">
+<!-- Preload Critical Assets -->
+<link rel="preload" href="/assets/images/default-thumbnail.svg" as="image" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+<!-- Critical inline CSS for fastest initial render -->
+
+<style>
+/* Critical CSS for faster page rendering */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --heading-color: #212529;
+  --link-color: #0d6efd;
+  --border-color: #dee2e6;
+  --widget-bg: #f8f9fa;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --header-height: 70px;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --heading-color: #f8f9fa;
+  --link-color: #6ea8fe;
+  --border-color: #2d2d2d;
+  --widget-bg: #1e1e1e;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Responsive image handling */
+.responsive-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Image fallback styling */
+.image-fallback {
+  object-fit: contain;
+  background-color: var(--widget-bg);
+  border: 1px solid var(--border-color);
+}
+
+.broken-image-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Header basic styling for first render */
+.site-header {
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+/* Main content area */
+.content {
+  padding: 2rem 0;
+}
+
+/* Skeleton loading placeholders */
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    var(--widget-bg) 25%,
+    var(--border-color) 50%,
+    var(--widget-bg) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+</style>
+
+<!-- Deferred CSS loading for better performance -->
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"></noscript>
+
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+
+<link rel="preload" href="/assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/styles.css"></noscript>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
 <link rel="alternate" type="application/rss+xml" title="Buildify" href="/feed.xml">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Tiny script for CSS loading optimization -->
+<script>
+!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
 
 
 
@@ -2306,7 +2442,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Color Schemes for Interiors: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://assets.website-files.com/5f4bb8e34bc82700bda2f385/5f8e08394884c1093526dae8_jP-Le8VQlzQoUUY9MAcaX27690CF7BE-opfFJzBRaZyU3oi77Kwl-bpezsgiTrFno1Zfv59_4z2gHvzQ-LhaExYXM7j-GhISsp7D57p7gm7FHrKHXMGnqsHJhRpPwC0QvnHl0hnw.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -2414,7 +2551,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Flooring Types and Trends: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idnflooring.net/wp-content/uploads/2024/01/tarkett-desso-recharge-retrace-dezeen-showroom_dezeen_2364_col_6-1.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -2506,7 +2644,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Roofing Styles and Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dupontroofingdc.com/wp-content/uploads/2023/06/maintainance-of-mansard-roof-types.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -2614,7 +2753,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Choosing a Home Designer: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://i.imgur.com/PdQ5q2y.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -2722,7 +2862,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Choosing a Home Designer: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://i.imgur.com/PdQ5q2y.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -2830,7 +2971,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Common Home Design Mistakes: Avoiding Costly Errors" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dwellingsdecor.com/wp-content/uploads/2021/04/2BWFDG7.8-1024x683.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -2938,7 +3080,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Balcony and Terrace Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://img.freepik.com/premium-photo/serene-balcony-terrace-design_98908-4891.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3046,7 +3189,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bathroom Interior Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.rensenhouseoflights.com/wp-content/uploads/2021/01/1280_1pMryVXPYBCj.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3154,7 +3298,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bathroom Interior Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.rensenhouseoflights.com/wp-content/uploads/2021/01/1280_1pMryVXPYBCj.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3262,7 +3407,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Modern Bedroom Ideas: Transforming Your Sleep Sanctuary" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2023/07/Modern-minimalist-gray-and-brown-bedroom-ideas.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3370,7 +3516,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Modern Bedroom Ideas: Transforming Your Sleep Sanctuary" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2023/07/Modern-minimalist-gray-and-brown-bedroom-ideas.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3478,7 +3625,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Smart Home Integration: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://as2.ftcdn.net/v2/jpg/07/15/55/41/1000_F_715554129_XDNypTyifAjUnPxx6EE97Dfr0RT7d8gL.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3570,7 +3718,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Concrete in Home Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.home-designing.com/wp-content/uploads/2023/10/concrete-home-design.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3662,7 +3811,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bohemian Interior Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/11/13/0/CI_Justina_Blackeney_Jungalow_Dabito_Jungle4.jpg.rend.hgtvcom.406.542.suffix/1510604606692.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3754,7 +3904,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Japandi Style Home: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2T7ND2C/modern-japandi-kitchen-interior-design-in-earth-tones-natural-textures-with-wooden-solid-oak-furniture-and-sliding-japanese-wood-doors-japandi-conce-2T7ND2C.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3846,7 +3997,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mid-Century Modern Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://axxla.com/wp-content/uploads/2023/04/mid-century-shapes.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -3938,7 +4090,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Industrial Interior Style: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/z/interior-deisgn-kitchen-industrial-style-exposed-brick-wall-interior-design-kitchen-industrial-style-exposed-278906569.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4046,7 +4199,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bohemian Interior Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/11/13/0/CI_Justina_Blackeney_Jungalow_Dabito_Jungle4.jpg.rend.hgtvcom.406.542.suffix/1510604606692.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4154,7 +4308,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bohemian Interior Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/11/13/0/CI_Justina_Blackeney_Jungalow_Dabito_Jungle4.jpg.rend.hgtvcom.406.542.suffix/1510604606692.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4262,7 +4417,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Budget-friendly design tips: Decorating on a Dime" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imagescdn.junodownload.com/full/CS3676045-02A-BIG.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4370,7 +4526,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Budget-friendly design tips: Decorating on a Dime" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imagescdn.junodownload.com/full/CS3676045-02A-BIG.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4478,7 +4635,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mid-Century Modern Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://axxla.com/wp-content/uploads/2023/04/mid-century-shapes.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4586,7 +4744,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mid-Century Modern Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://axxla.com/wp-content/uploads/2023/04/mid-century-shapes.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4694,7 +4853,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Choosing a Home Designer: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://i.imgur.com/PdQ5q2y.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4802,7 +4962,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Choosing a Home Designer: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://i.imgur.com/PdQ5q2y.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -4910,7 +5071,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wall Panel and Cladding Options: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/430332724/original/51447f8668/1723201424?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5018,7 +5180,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wall Panel and Cladding Options: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/430332724/original/51447f8668/1723201424?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5126,7 +5289,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Coastal Home Style: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://curatedinterior.com/wp-content/uploads/2020/05/Coastal-Living-Room-with-Palm-Centerpiece-Decor-via-@sandandsisal.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5234,7 +5398,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Coastal Home Style: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://curatedinterior.com/wp-content/uploads/2020/05/Coastal-Living-Room-with-Palm-Centerpiece-Decor-via-@sandandsisal.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5342,7 +5507,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Color Schemes for Interiors: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://assets.website-files.com/5f4bb8e34bc82700bda2f385/5f8e08394884c1093526dae8_jP-Le8VQlzQoUUY9MAcaX27690CF7BE-opfFJzBRaZyU3oi77Kwl-bpezsgiTrFno1Zfv59_4z2gHvzQ-LhaExYXM7j-GhISsp7D57p7gm7FHrKHXMGnqsHJhRpPwC0QvnHl0hnw.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5450,7 +5616,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Common Home Design Mistakes: Avoiding Costly Errors" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dwellingsdecor.com/wp-content/uploads/2021/04/2BWFDG7.8-1024x683.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5558,7 +5725,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Common Home Design Mistakes: Avoiding Costly Errors" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dwellingsdecor.com/wp-content/uploads/2021/04/2BWFDG7.8-1024x683.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5666,7 +5834,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Small Space Interior Tips: Guida Completa" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.ytimg.com/vi/QsKV_wbLFSQ/maxresdefault.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5774,7 +5943,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Renovation Planning: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://kmhp.in/wp-content/uploads/2023/10/Marketing-Blog-YouTube-Thumbnail-9.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5866,7 +6036,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Choosing a Home Designer: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://i.imgur.com/PdQ5q2y.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -5958,7 +6129,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bathroom Interior Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.rensenhouseoflights.com/wp-content/uploads/2021/01/1280_1pMryVXPYBCj.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6050,7 +6222,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Farmhouse Interior Ideas: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/6c/f0/f7/6cf0f7ed0bc6bfc66b2303c47a375ed6.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6142,7 +6315,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mediterranean Exterior Look: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://www.creativelandscapesinc.com/wp-content/uploads/2012/09/Garden_05_Mediterranean_Formal_02.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6234,7 +6408,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Rustic Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/dd/89/c0/dd89c0752fd373c9524c729197273303.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6348,7 +6523,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Front Elevation Design: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-1-f.scribdassets.com/img/document/760050529/original/6c13ebf232/1727158763?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6456,7 +6632,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Concrete in Home Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.home-designing.com/wp-content/uploads/2023/10/concrete-home-design.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6564,7 +6741,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Concrete in Home Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.home-designing.com/wp-content/uploads/2023/10/concrete-home-design.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6672,7 +6850,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Contemporary House Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://buildingmaterials.com.my/wp-content/uploads/2019/03/15-green-sustainable-building-materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6780,7 +6959,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Contemporary House Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://buildingmaterials.com.my/wp-content/uploads/2019/03/15-green-sustainable-building-materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6888,7 +7068,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Budget-friendly design tips: Decorating on a Dime" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imagescdn.junodownload.com/full/CS3676045-02A-BIG.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -6996,7 +7177,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Porch and Patio Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.mainstreetlawncare.com/wp-content/uploads/Best-Stone-Patio-Paving-Materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7104,7 +7286,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Porch and Patio Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.mainstreetlawncare.com/wp-content/uploads/Best-Stone-Patio-Paving-Materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7212,7 +7395,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garden and Landscape Design: Creating Outdoor Paradises" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX24872037.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7320,7 +7504,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garden and Landscape Design: Creating Outdoor Paradises" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX24872037.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7428,7 +7613,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Balcony and Terrace Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://img.freepik.com/premium-photo/serene-balcony-terrace-design_98908-4891.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7520,7 +7706,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Entryway and Foyer Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://poulindesigncenter.com/wp-content/uploads/2018/04/5-Flooring-Options-for-Entryways.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7612,7 +7799,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garage and Driveway Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.istockphoto.com/vectors/garage-icon-vector-id1295966679?k=6&amp;m=1295966679&amp;s=612x612&amp;w=0&amp;h=BhkOl3v_-elK8UNAPP__BaN2TzKhlQKbPBs061rjmcU=');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7720,7 +7908,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exploring the Scandinavian Design Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://nimvo.com/wp-content/uploads/2017/08/Bedroom-design-in-Scandinavian-style-naturalness-and-simplicity.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7828,7 +8017,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Seasonal Design Trends: A Look at Whats Hot This Season" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idea.3dbrute.com/wp-content/uploads/2021/image/he3j/Minimalist-Scandinavian-design-14.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -7936,7 +8126,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Seasonal Design Trends: A Look at Whats Hot This Season" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idea.3dbrute.com/wp-content/uploads/2021/image/he3j/Minimalist-Scandinavian-design-14.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8044,7 +8235,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Budget-friendly design tips: Decorating on a Dime" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imagescdn.junodownload.com/full/CS3676045-02A-BIG.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8152,7 +8344,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Window and Door Material Choices: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://cpimg.tistatic.com/01626166/b/4/Wooden-Window-Frames.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8260,7 +8453,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Window and Door Material Choices: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://cpimg.tistatic.com/01626166/b/4/Wooden-Window-Frames.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8368,7 +8562,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Ultimate Kitchen Design Ideas for Your Dream Kitchen" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.ampquartz.com/wp-content/uploads/2023/03/Yellow-Modern-3-Ideas-Get-Passive-Income-Infographic.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8476,7 +8671,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garage and Driveway Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.istockphoto.com/vectors/garage-icon-vector-id1295966679?k=6&amp;m=1295966679&amp;s=612x612&amp;w=0&amp;h=BhkOl3v_-elK8UNAPP__BaN2TzKhlQKbPBs061rjmcU=');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8584,7 +8780,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garage and Driveway Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.istockphoto.com/vectors/garage-icon-vector-id1295966679?k=6&amp;m=1295966679&amp;s=612x612&amp;w=0&amp;h=BhkOl3v_-elK8UNAPP__BaN2TzKhlQKbPBs061rjmcU=');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8692,7 +8889,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Front Elevation Design: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-1-f.scribdassets.com/img/document/760050529/original/6c13ebf232/1727158763?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8800,7 +8998,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Front Elevation Design: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-1-f.scribdassets.com/img/document/760050529/original/6c13ebf232/1727158763?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -8908,7 +9107,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Entryway and Foyer Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://poulindesigncenter.com/wp-content/uploads/2018/04/5-Flooring-Options-for-Entryways.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9016,7 +9216,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exploring the Scandinavian Design Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://nimvo.com/wp-content/uploads/2017/08/Bedroom-design-in-Scandinavian-style-naturalness-and-simplicity.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9124,7 +9325,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Luxury Interior Design: Crafting Exquisite Living Spaces" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/35/6c/85/356c85c15d9d19a76bc8cb575cd2657e.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9232,7 +9434,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mediterranean Exterior Look: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://www.creativelandscapesinc.com/wp-content/uploads/2012/09/Garden_05_Mediterranean_Formal_02.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9340,7 +9543,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mediterranean Exterior Look: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://www.creativelandscapesinc.com/wp-content/uploads/2012/09/Garden_05_Mediterranean_Formal_02.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9448,7 +9652,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Sustainable Exterior Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://hdgbuildingmaterials.com/wp-content/uploads/2015/09/bamboo-siding-application.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9556,7 +9761,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Sustainable Exterior Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://hdgbuildingmaterials.com/wp-content/uploads/2015/09/bamboo-siding-application.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9664,7 +9870,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exterior Paint Color Ideas: Fresh Looks for Your Home" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i1.wp.com/roomfortuesday.com/wp-content/uploads/2018/05/Classic-Exterior-Paint-Colors-Soft-Gray-Taupe.jpg?ssl=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9772,7 +9979,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exterior Paint Color Ideas: Fresh Looks for Your Home" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i1.wp.com/roomfortuesday.com/wp-content/uploads/2018/05/Classic-Exterior-Paint-Colors-Soft-Gray-Taupe.jpg?ssl=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9880,7 +10088,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Farmhouse Interior Ideas: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/6c/f0/f7/6cf0f7ed0bc6bfc66b2303c47a375ed6.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -9988,7 +10197,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Farmhouse Interior Ideas: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/6c/f0/f7/6cf0f7ed0bc6bfc66b2303c47a375ed6.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10096,7 +10306,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Feng Shui Home Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2TCHEDP/abstract-circle-of-universe-creation-destruction-with-five-elements-wood-fire-earth-metal-water-in-feng-shui-as-line-drawing-on-the-white-backgro-2TCHEDP.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10204,7 +10415,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Feng Shui Home Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2TCHEDP/abstract-circle-of-universe-creation-destruction-with-five-elements-wood-fire-earth-metal-water-in-feng-shui-as-line-drawing-on-the-white-backgro-2TCHEDP.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10312,7 +10524,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Open Floor Plan Designs: De Ultieme Gids" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://static.vecteezy.com/system/resources/thumbnails/034/529/093/small_2x/ai-generated-luxury-interior-living-room-with-open-concept-floor-plan-kitchen-dining-room-and-wall-of-windows-ai-generative-photo.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10420,7 +10633,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Open Floor Plan Designs: De Ultieme Gids" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://static.vecteezy.com/system/resources/thumbnails/034/529/093/small_2x/ai-generated-luxury-interior-living-room-with-open-concept-floor-plan-kitchen-dining-room-and-wall-of-windows-ai-generative-photo.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10528,7 +10742,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Flooring Types and Trends: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idnflooring.net/wp-content/uploads/2024/01/tarkett-desso-recharge-retrace-dezeen-showroom_dezeen_2364_col_6-1.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10636,7 +10851,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Entryway and Foyer Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://poulindesigncenter.com/wp-content/uploads/2018/04/5-Flooring-Options-for-Entryways.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10744,7 +10960,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Entryway and Foyer Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://poulindesigncenter.com/wp-content/uploads/2018/04/5-Flooring-Options-for-Entryways.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10852,7 +11069,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exterior Paint Color Ideas: Fresh Looks for Your Home" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i1.wp.com/roomfortuesday.com/wp-content/uploads/2018/05/Classic-Exterior-Paint-Colors-Soft-Gray-Taupe.jpg?ssl=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -10960,7 +11178,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Budget-friendly design tips: Decorating on a Dime" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imagescdn.junodownload.com/full/CS3676045-02A-BIG.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11068,7 +11287,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Front Elevation Design: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-1-f.scribdassets.com/img/document/760050529/original/6c13ebf232/1727158763?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11176,7 +11396,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Front Elevation Design: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-1-f.scribdassets.com/img/document/760050529/original/6c13ebf232/1727158763?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11284,7 +11505,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garage and Driveway Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.istockphoto.com/vectors/garage-icon-vector-id1295966679?k=6&amp;m=1295966679&amp;s=612x612&amp;w=0&amp;h=BhkOl3v_-elK8UNAPP__BaN2TzKhlQKbPBs061rjmcU=');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11392,7 +11614,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garden and Landscape Design: Creating Outdoor Paradises" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX24872037.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11500,7 +11723,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Small Space Interior Tips: Guida Completa" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.ytimg.com/vi/QsKV_wbLFSQ/maxresdefault.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11608,7 +11832,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wall Panel and Cladding Options: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/430332724/original/51447f8668/1723201424?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11700,7 +11925,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Office Interior Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.jvcarpentry.com/wp-content/uploads/2020/07/alcove-shelving-lights-4.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11808,7 +12034,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Common Home Design Mistakes: Avoiding Costly Errors" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dwellingsdecor.com/wp-content/uploads/2021/04/2BWFDG7.8-1024x683.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11900,7 +12127,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Rustic Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/dd/89/c0/dd89c0752fd373c9524c729197273303.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -11992,7 +12220,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Traditional Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.architecturaldigest.com/photos/6409eebaf004df0027a8b133/16:9/w_2560%2Cc_limit/Aim%25C3%25A9e%2520Mazzenga%2520-%2520VCLaunch02.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12100,7 +12329,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Rustic Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/dd/89/c0/dd89c0752fd373c9524c729197273303.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12192,7 +12422,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Traditional Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.architecturaldigest.com/photos/6409eebaf004df0027a8b133/16:9/w_2560%2Cc_limit/Aim%25C3%25A9e%2520Mazzenga%2520-%2520VCLaunch02.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12300,7 +12531,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Common Home Design Mistakes: Avoiding Costly Errors" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dwellingsdecor.com/wp-content/uploads/2021/04/2BWFDG7.8-1024x683.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12408,7 +12640,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Smart Home Integration: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://as2.ftcdn.net/v2/jpg/07/15/55/41/1000_F_715554129_XDNypTyifAjUnPxx6EE97Dfr0RT7d8gL.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12516,7 +12749,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Smart Home Integration: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://as2.ftcdn.net/v2/jpg/07/15/55/41/1000_F_715554129_XDNypTyifAjUnPxx6EE97Dfr0RT7d8gL.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12624,7 +12858,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Office Interior Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.jvcarpentry.com/wp-content/uploads/2020/07/alcove-shelving-lights-4.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12732,7 +12967,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Office Interior Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.jvcarpentry.com/wp-content/uploads/2020/07/alcove-shelving-lights-4.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12840,7 +13076,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Renovation Planning: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://kmhp.in/wp-content/uploads/2023/10/Marketing-Blog-YouTube-Thumbnail-9.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -12948,7 +13185,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Renovation Planning: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://kmhp.in/wp-content/uploads/2023/10/Marketing-Blog-YouTube-Thumbnail-9.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13056,7 +13294,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Coastal Home Style: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://curatedinterior.com/wp-content/uploads/2020/05/Coastal-Living-Room-with-Palm-Centerpiece-Decor-via-@sandandsisal.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13164,7 +13403,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Coastal Home Style: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://curatedinterior.com/wp-content/uploads/2020/05/Coastal-Living-Room-with-Palm-Centerpiece-Decor-via-@sandandsisal.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13272,7 +13512,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Contemporary House Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://buildingmaterials.com.my/wp-content/uploads/2019/03/15-green-sustainable-building-materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13380,7 +13621,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Contemporary House Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://buildingmaterials.com.my/wp-content/uploads/2019/03/15-green-sustainable-building-materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13488,7 +13730,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Concrete in Home Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.home-designing.com/wp-content/uploads/2023/10/concrete-home-design.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13596,7 +13839,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Concrete in Home Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.home-designing.com/wp-content/uploads/2023/10/concrete-home-design.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13704,7 +13948,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Industrial Interior Style: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/z/interior-deisgn-kitchen-industrial-style-exposed-brick-wall-interior-design-kitchen-industrial-style-exposed-278906569.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13812,7 +14057,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Industrial Interior Style: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/z/interior-deisgn-kitchen-industrial-style-exposed-brick-wall-interior-design-kitchen-industrial-style-exposed-278906569.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -13920,7 +14166,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bathroom Interior Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.rensenhouseoflights.com/wp-content/uploads/2021/01/1280_1pMryVXPYBCj.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14012,7 +14259,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bohemian Interior Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/11/13/0/CI_Justina_Blackeney_Jungalow_Dabito_Jungle4.jpg.rend.hgtvcom.406.542.suffix/1510604606692.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14104,7 +14352,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Luxury Interior Design: Crafting Exquisite Living Spaces" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/35/6c/85/356c85c15d9d19a76bc8cb575cd2657e.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14212,7 +14461,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bathroom Interior Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.rensenhouseoflights.com/wp-content/uploads/2021/01/1280_1pMryVXPYBCj.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14304,7 +14554,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Bohemian Interior Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2017/11/13/0/CI_Justina_Blackeney_Jungalow_Dabito_Jungle4.jpg.rend.hgtvcom.406.542.suffix/1510604606692.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14412,7 +14663,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Luxury Interior Design: Crafting Exquisite Living Spaces" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/35/6c/85/356c85c15d9d19a76bc8cb575cd2657e.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14520,7 +14772,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Farmhouse Interior Ideas: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/6c/f0/f7/6cf0f7ed0bc6bfc66b2303c47a375ed6.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14628,7 +14881,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Farmhouse Interior Ideas: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/6c/f0/f7/6cf0f7ed0bc6bfc66b2303c47a375ed6.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14736,7 +14990,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Interior Lighting Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://weandgoliath.com/wp-content/uploads/2023/01/light-types-illustration.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14844,7 +15099,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Interior Lighting Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://weandgoliath.com/wp-content/uploads/2023/01/light-types-illustration.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -14952,7 +15208,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Industrial Interior Style: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/z/interior-deisgn-kitchen-industrial-style-exposed-brick-wall-interior-design-kitchen-industrial-style-exposed-278906569.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15060,7 +15317,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Industrial Interior Style: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/z/interior-deisgn-kitchen-industrial-style-exposed-brick-wall-interior-design-kitchen-industrial-style-exposed-278906569.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15168,7 +15426,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Color Schemes for Interiors: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://assets.website-files.com/5f4bb8e34bc82700bda2f385/5f8e08394884c1093526dae8_jP-Le8VQlzQoUUY9MAcaX27690CF7BE-opfFJzBRaZyU3oi77Kwl-bpezsgiTrFno1Zfv59_4z2gHvzQ-LhaExYXM7j-GhISsp7D57p7gm7FHrKHXMGnqsHJhRpPwC0QvnHl0hnw.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15276,7 +15535,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Color Schemes for Interiors: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://assets.website-files.com/5f4bb8e34bc82700bda2f385/5f8e08394884c1093526dae8_jP-Le8VQlzQoUUY9MAcaX27690CF7BE-opfFJzBRaZyU3oi77Kwl-bpezsgiTrFno1Zfv59_4z2gHvzQ-LhaExYXM7j-GhISsp7D57p7gm7FHrKHXMGnqsHJhRpPwC0QvnHl0hnw.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15384,7 +15644,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Japandi Style Home: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2T7ND2C/modern-japandi-kitchen-interior-design-in-earth-tones-natural-textures-with-wooden-solid-oak-furniture-and-sliding-japanese-wood-doors-japandi-conce-2T7ND2C.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15492,7 +15753,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Japandi Style Home: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2T7ND2C/modern-japandi-kitchen-interior-design-in-earth-tones-natural-textures-with-wooden-solid-oak-furniture-and-sliding-japanese-wood-doors-japandi-conce-2T7ND2C.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15600,7 +15862,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Kids’ Room Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/736x/61/aa/f7/61aaf7722c4d09508dd7505b80a5b352--sleepover-party-girls-slumber-parties.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15708,7 +15971,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Kids’ Room Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/736x/61/aa/f7/61aaf7722c4d09508dd7505b80a5b352--sleepover-party-girls-slumber-parties.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15816,7 +16080,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Ultimate Kitchen Design Ideas for Your Dream Kitchen" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.ampquartz.com/wp-content/uploads/2023/03/Yellow-Modern-3-Ideas-Get-Passive-Income-Infographic.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -15924,7 +16189,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Ultimate Kitchen Design Ideas for Your Dream Kitchen" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.ampquartz.com/wp-content/uploads/2023/03/Yellow-Modern-3-Ideas-Get-Passive-Income-Infographic.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16032,7 +16298,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Outdoor Lighting Design: Den komplette guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/703759692/original/07a4b7c5a6/1727095061?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16140,7 +16407,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garden and Landscape Design: Creating Outdoor Paradises" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX24872037.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16248,7 +16516,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Garden and Landscape Design: Creating Outdoor Paradises" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX24872037.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16356,7 +16625,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Laundry Room Design: Maximizing Space and Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://homemydesign.com/wp-content/uploads/2013/02/20-laundry-room-ideas-with-small-space-solutions.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16464,7 +16734,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Laundry Room Design: Maximizing Space and Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://homemydesign.com/wp-content/uploads/2013/02/20-laundry-room-ideas-with-small-space-solutions.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16572,7 +16843,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Outdoor Lighting Design: Den komplette guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/703759692/original/07a4b7c5a6/1727095061?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16664,7 +16936,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Interior Lighting Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://weandgoliath.com/wp-content/uploads/2023/01/light-types-illustration.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16772,7 +17045,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Interior Lighting Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://weandgoliath.com/wp-content/uploads/2023/01/light-types-illustration.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16880,7 +17154,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Outdoor Lighting Design: Den komplette guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/703759692/original/07a4b7c5a6/1727095061?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -16988,7 +17263,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Living Room Interior Design: Trends and Inspiration" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/b/minimalist-living-room-clean-lines-neutral-colours-simple-decor-minimalist-living-room-clean-lines-neutral-colors-268736445.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17096,7 +17372,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Living Room Interior Design: Trends and Inspiration" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/b/minimalist-living-room-clean-lines-neutral-colours-simple-decor-minimalist-living-room-clean-lines-neutral-colors-268736445.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17204,7 +17481,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Seasonal Design Trends: A Look at Whats Hot This Season" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idea.3dbrute.com/wp-content/uploads/2021/image/he3j/Minimalist-Scandinavian-design-14.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17312,7 +17590,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Luxury Interior Design: Crafting Exquisite Living Spaces" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/35/6c/85/356c85c15d9d19a76bc8cb575cd2657e.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17420,7 +17699,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Luxury Interior Design: Crafting Exquisite Living Spaces" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/35/6c/85/356c85c15d9d19a76bc8cb575cd2657e.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17528,7 +17808,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Window and Door Material Choices: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://cpimg.tistatic.com/01626166/b/4/Wooden-Window-Frames.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17636,7 +17917,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Window and Door Material Choices: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://cpimg.tistatic.com/01626166/b/4/Wooden-Window-Frames.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17744,7 +18026,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Roofing Styles and Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dupontroofingdc.com/wp-content/uploads/2023/06/maintainance-of-mansard-roof-types.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17852,7 +18135,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Roofing Styles and Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dupontroofingdc.com/wp-content/uploads/2023/06/maintainance-of-mansard-roof-types.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -17960,7 +18244,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mediterranean Exterior Look: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://www.creativelandscapesinc.com/wp-content/uploads/2012/09/Garden_05_Mediterranean_Formal_02.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18068,7 +18353,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mediterranean Exterior Look: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://www.creativelandscapesinc.com/wp-content/uploads/2012/09/Garden_05_Mediterranean_Formal_02.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18176,7 +18462,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mid-Century Modern Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://axxla.com/wp-content/uploads/2023/04/mid-century-shapes.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18284,7 +18571,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Mid-Century Modern Design: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://axxla.com/wp-content/uploads/2023/04/mid-century-shapes.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18392,7 +18680,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Modern Bedroom Ideas: Transforming Your Sleep Sanctuary" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2023/07/Modern-minimalist-gray-and-brown-bedroom-ideas.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18500,7 +18789,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Modern Bedroom Ideas: Transforming Your Sleep Sanctuary" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2023/07/Modern-minimalist-gray-and-brown-bedroom-ideas.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18608,7 +18898,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Natural Stone in Design: Timeless Elegance and Modern Applications" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/f0/60/84/f06084b5530be0243ede1b96af062624.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18716,7 +19007,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Natural Stone in Design: Timeless Elegance and Modern Applications" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/f0/60/84/f06084b5530be0243ede1b96af062624.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18824,7 +19116,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Office Interior Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.jvcarpentry.com/wp-content/uploads/2020/07/alcove-shelving-lights-4.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -18932,7 +19225,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Office Interior Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.jvcarpentry.com/wp-content/uploads/2020/07/alcove-shelving-lights-4.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19040,7 +19334,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Open Floor Plan Designs: De Ultieme Gids" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://static.vecteezy.com/system/resources/thumbnails/034/529/093/small_2x/ai-generated-luxury-interior-living-room-with-open-concept-floor-plan-kitchen-dining-room-and-wall-of-windows-ai-generative-photo.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19148,7 +19443,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Open Floor Plan Designs: De Ultieme Gids" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://static.vecteezy.com/system/resources/thumbnails/034/529/093/small_2x/ai-generated-luxury-interior-living-room-with-open-concept-floor-plan-kitchen-dining-room-and-wall-of-windows-ai-generative-photo.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19256,7 +19552,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wall Panel and Cladding Options: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/430332724/original/51447f8668/1723201424?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19364,7 +19661,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Outdoor Lighting Design: Den komplette guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/703759692/original/07a4b7c5a6/1727095061?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19472,7 +19770,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Outdoor Lighting Design: Den komplette guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/703759692/original/07a4b7c5a6/1727095061?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19580,7 +19879,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exterior Paint Color Ideas: Fresh Looks for Your Home" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i1.wp.com/roomfortuesday.com/wp-content/uploads/2018/05/Classic-Exterior-Paint-Colors-Soft-Gray-Taupe.jpg?ssl=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19688,7 +19988,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exterior Paint Color Ideas: Fresh Looks for Your Home" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i1.wp.com/roomfortuesday.com/wp-content/uploads/2018/05/Classic-Exterior-Paint-Colors-Soft-Gray-Taupe.jpg?ssl=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19796,7 +20097,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Porch and Patio Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.mainstreetlawncare.com/wp-content/uploads/Best-Stone-Patio-Paving-Materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -19904,7 +20206,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Porch and Patio Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.mainstreetlawncare.com/wp-content/uploads/Best-Stone-Patio-Paving-Materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20012,7 +20315,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="How to plan home design" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i0.wp.com/jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2023/03/17111545/floor-plan-direction.jpg?strip=all');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20120,7 +20424,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="How to plan home design" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i0.wp.com/jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2023/03/17111545/floor-plan-direction.jpg?strip=all');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20228,7 +20533,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Porch and Patio Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.mainstreetlawncare.com/wp-content/uploads/Best-Stone-Patio-Paving-Materials.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20336,7 +20642,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Renovation Planning: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://kmhp.in/wp-content/uploads/2023/10/Marketing-Blog-YouTube-Thumbnail-9.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20444,7 +20751,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Home Renovation Planning: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://kmhp.in/wp-content/uploads/2023/10/Marketing-Blog-YouTube-Thumbnail-9.png');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20552,7 +20860,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Roofing Styles and Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://dupontroofingdc.com/wp-content/uploads/2023/06/maintainance-of-mansard-roof-types.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20660,7 +20969,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Laundry Room Design: Maximizing Space and Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://homemydesign.com/wp-content/uploads/2013/02/20-laundry-room-ideas-with-small-space-solutions.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20752,7 +21062,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Kids’ Room Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/736x/61/aa/f7/61aaf7722c4d09508dd7505b80a5b352--sleepover-party-girls-slumber-parties.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20860,7 +21171,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Kids’ Room Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/736x/61/aa/f7/61aaf7722c4d09508dd7505b80a5b352--sleepover-party-girls-slumber-parties.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -20968,7 +21280,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Laundry Room Design: Maximizing Space and Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://homemydesign.com/wp-content/uploads/2013/02/20-laundry-room-ideas-with-small-space-solutions.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21076,7 +21389,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Living Room Interior Design: Trends and Inspiration" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/b/minimalist-living-room-clean-lines-neutral-colours-simple-decor-minimalist-living-room-clean-lines-neutral-colors-268736445.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21184,7 +21498,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Living Room Interior Design: Trends and Inspiration" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/b/minimalist-living-room-clean-lines-neutral-colours-simple-decor-minimalist-living-room-clean-lines-neutral-colors-268736445.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21292,7 +21607,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Rustic Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/dd/89/c0/dd89c0752fd373c9524c729197273303.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21400,7 +21716,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Rustic Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/dd/89/c0/dd89c0752fd373c9524c729197273303.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21508,7 +21825,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exploring the Scandinavian Design Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://nimvo.com/wp-content/uploads/2017/08/Bedroom-design-in-Scandinavian-style-naturalness-and-simplicity.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21616,7 +21934,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Exploring the Scandinavian Design Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://nimvo.com/wp-content/uploads/2017/08/Bedroom-design-in-Scandinavian-style-naturalness-and-simplicity.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21724,7 +22043,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Seasonal Design Trends: A Look at Whats Hot This Season" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idea.3dbrute.com/wp-content/uploads/2021/image/he3j/Minimalist-Scandinavian-design-14.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21832,7 +22152,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Seasonal Design Trends: A Look at Whats Hot This Season" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idea.3dbrute.com/wp-content/uploads/2021/image/he3j/Minimalist-Scandinavian-design-14.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -21940,7 +22261,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Feng Shui Home Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2TCHEDP/abstract-circle-of-universe-creation-destruction-with-five-elements-wood-fire-earth-metal-water-in-feng-shui-as-line-drawing-on-the-white-backgro-2TCHEDP.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22048,7 +22370,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Feng Shui Home Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2TCHEDP/abstract-circle-of-universe-creation-destruction-with-five-elements-wood-fire-earth-metal-water-in-feng-shui-as-line-drawing-on-the-white-backgro-2TCHEDP.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22156,7 +22479,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Modern Bedroom Ideas: Transforming Your Sleep Sanctuary" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.decorilla.com/online-decorating/wp-content/uploads/2023/07/Modern-minimalist-gray-and-brown-bedroom-ideas.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22264,7 +22588,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Small Space Interior Tips: Guida Completa" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.ytimg.com/vi/QsKV_wbLFSQ/maxresdefault.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22372,7 +22697,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Small Space Interior Tips: Guida Completa" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.ytimg.com/vi/QsKV_wbLFSQ/maxresdefault.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22480,7 +22806,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Smart Home Integration: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://as2.ftcdn.net/v2/jpg/07/15/55/41/1000_F_715554129_XDNypTyifAjUnPxx6EE97Dfr0RT7d8gL.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22588,7 +22915,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Smart Home Integration: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://as2.ftcdn.net/v2/jpg/07/15/55/41/1000_F_715554129_XDNypTyifAjUnPxx6EE97Dfr0RT7d8gL.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22696,7 +23024,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Laundry Room Design: Maximizing Space and Style" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://homemydesign.com/wp-content/uploads/2013/02/20-laundry-room-ideas-with-small-space-solutions.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22804,7 +23133,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Small Space Interior Tips: Guida Completa" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.ytimg.com/vi/QsKV_wbLFSQ/maxresdefault.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -22912,7 +23242,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Natural Stone in Design: Timeless Elegance and Modern Applications" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/f0/60/84/f06084b5530be0243ede1b96af062624.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23020,7 +23351,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Natural Stone in Design: Timeless Elegance and Modern Applications" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/f0/60/84/f06084b5530be0243ede1b96af062624.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23128,7 +23460,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Japandi Style Home: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2T7ND2C/modern-japandi-kitchen-interior-design-in-earth-tones-natural-textures-with-wooden-solid-oak-furniture-and-sliding-japanese-wood-doors-japandi-conce-2T7ND2C.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23236,7 +23569,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Japandi Style Home: A Beginners Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2T7ND2C/modern-japandi-kitchen-interior-design-in-earth-tones-natural-textures-with-wooden-solid-oak-furniture-and-sliding-japanese-wood-doors-japandi-conce-2T7ND2C.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23344,7 +23678,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Sustainable Exterior Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://hdgbuildingmaterials.com/wp-content/uploads/2015/09/bamboo-siding-application.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23452,7 +23787,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Sustainable Exterior Materials: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'http://hdgbuildingmaterials.com/wp-content/uploads/2015/09/bamboo-siding-application.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23560,7 +23896,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Balcony and Terrace Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://img.freepik.com/premium-photo/serene-balcony-terrace-design_98908-4891.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23668,7 +24005,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Balcony and Terrace Design Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://img.freepik.com/premium-photo/serene-balcony-terrace-design_98908-4891.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23776,7 +24114,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Natural Stone in Design: Timeless Elegance and Modern Applications" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/originals/f0/60/84/f06084b5530be0243ede1b96af062624.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23884,7 +24223,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="How to plan home design" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i0.wp.com/jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2023/03/17111545/floor-plan-direction.jpg?strip=all');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -23992,7 +24332,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="How to plan home design" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i0.wp.com/jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2023/03/17111545/floor-plan-direction.jpg?strip=all');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24100,7 +24441,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Traditional Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.architecturaldigest.com/photos/6409eebaf004df0027a8b133/16:9/w_2560%2Cc_limit/Aim%25C3%25A9e%2520Mazzenga%2520-%2520VCLaunch02.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24208,7 +24550,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Traditional Home Design: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://media.architecturaldigest.com/photos/6409eebaf004df0027a8b133/16:9/w_2560%2Cc_limit/Aim%25C3%25A9e%2520Mazzenga%2520-%2520VCLaunch02.jpeg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24316,7 +24659,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Living Room Interior Design: Trends and Inspiration" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://thumbs.dreamstime.com/b/minimalist-living-room-clean-lines-neutral-colours-simple-decor-minimalist-living-room-clean-lines-neutral-colors-268736445.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24424,7 +24768,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Flooring Types and Trends: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idnflooring.net/wp-content/uploads/2024/01/tarkett-desso-recharge-retrace-dezeen-showroom_dezeen_2364_col_6-1.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24532,7 +24877,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Flooring Types and Trends: A Complete Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://idnflooring.net/wp-content/uploads/2024/01/tarkett-desso-recharge-retrace-dezeen-showroom_dezeen_2364_col_6-1.webp');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24640,7 +24986,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Open Floor Plan Designs: De Ultieme Gids" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://static.vecteezy.com/system/resources/thumbnails/034/529/093/small_2x/ai-generated-luxury-interior-living-room-with-open-concept-floor-plan-kitchen-dining-room-and-wall-of-windows-ai-generative-photo.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24748,7 +25095,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Ultimate Kitchen Design Ideas for Your Dream Kitchen" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.ampquartz.com/wp-content/uploads/2023/03/Yellow-Modern-3-Ideas-Get-Passive-Income-Infographic.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24856,7 +25204,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Ultimate Kitchen Design Ideas for Your Dream Kitchen" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.ampquartz.com/wp-content/uploads/2023/03/Yellow-Modern-3-Ideas-Get-Passive-Income-Infographic.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -24964,7 +25313,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Feng Shui Home Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://c8.alamy.com/comp/2TCHEDP/abstract-circle-of-universe-creation-destruction-with-five-elements-wood-fire-earth-metal-water-in-feng-shui-as-line-drawing-on-the-white-backgro-2TCHEDP.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -25056,7 +25406,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Kids’ Room Design: Den Ultimative Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://i.pinimg.com/736x/61/aa/f7/61aaf7722c4d09508dd7505b80a5b352--sleepover-party-girls-slumber-parties.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -25164,7 +25515,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wood vs. metal finishes" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.moslowwood.com/wp-content/uploads/2012/04/Cherry-Natural-Finish-1280x1024.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -25272,7 +25624,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wood vs. metal finishes" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.moslowwood.com/wp-content/uploads/2012/04/Cherry-Natural-Finish-1280x1024.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -25380,7 +25733,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wall Panel and Cladding Options: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://imgv2-2-f.scribdassets.com/img/document/430332724/original/51447f8668/1723201424?v=1');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -25488,7 +25842,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Window and Door Material Choices: A Comprehensive Guide" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://cpimg.tistatic.com/01626166/b/4/Wooden-Window-Frames.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -25596,7 +25951,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wood vs. metal finishes" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.moslowwood.com/wp-content/uploads/2012/04/Cherry-Natural-Finish-1280x1024.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -25704,7 +26060,8 @@ document.addEventListener('DOMContentLoaded', function() {
     alt="Wood vs. metal finishes" 
     class="responsive-image " 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');this.setAttribute('data-original-src', 'https://www.moslowwood.com/wp-content/uploads/2012/04/Cherry-Natural-Finish-1280x1024.jpg');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     
     
   >
@@ -26509,8 +26866,38 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
   
-  <script src="/assets/js/main.js"></script>
-  <script src="/assets/js/dark-mode.js"></script>
+  <!-- Critical scripts - load first for image handling and UI -->
+  <script src="/assets/js/image-optimizer.js"></script>
+  
+  <!-- Deferred scripts for better performance -->
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/dark-mode.js" defer></script>
+  
+  <!-- Load non-critical scripts after page is interactive -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Dynamically load search script after page is ready
+      if (document.querySelector('.search-form, .search-toggle')) {
+        const searchScript = document.createElement('script');
+        searchScript.src = "/assets/js/search.js";
+        document.body.appendChild(searchScript);
+      }
+      
+      // Load TOC script only on pages that need it
+      if (document.querySelector('.toc-container')) {
+        const tocScript = document.createElement('script');
+        tocScript.src = "/assets/js/toc.js";
+        document.body.appendChild(tocScript);
+      }
+      
+      // Load Disqus script only when comments section is visible
+      if (document.querySelector('.comments-section')) {
+        const disqusScript = document.createElement('script');
+        disqusScript.src = "/assets/js/disqus-loader.js";
+        document.body.appendChild(disqusScript);
+      }
+    });
+  </script>
   
   
 </body>

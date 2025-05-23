@@ -45,7 +45,8 @@ Usage examples:
     alt="{{ include.alt | default: 'Image' }}" 
     class="responsive-image {% if include.class %}{{ include.class }}{% endif %}" 
     loading="lazy" 
-    onerror="this.onerror=null;this.src='{{ default_image | relative_url }}';this.classList.add('image-fallback');"
+    decoding="async"
+    onerror="this.onerror=null;this.src='{{ default_image | relative_url }}';this.classList.add('image-fallback');this.setAttribute('data-original-src', '{{ final_image_src }}');if(window.imageFallbackCallback)window.imageFallbackCallback(this);"
     {% if include.width %}width="{{ include.width }}"{% endif %}
     {% if include.height %}height="{{ include.height }}"{% endif %}
   >

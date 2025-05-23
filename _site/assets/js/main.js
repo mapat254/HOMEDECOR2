@@ -369,25 +369,40 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Handle broken images
-    document.querySelectorAll('img.responsive-image').forEach(img => {
-      // Prevent infinite error loops
-      if (!img.hasAttribute('data-error-handled')) {
-        img.setAttribute('data-error-handled', 'true');
-        img.addEventListener('error', function() {
-          const container = this.closest('.responsive-image-container');
-          const defaultImage = container ? container.getAttribute('data-default-image') : '/assets/images/default-thumbnail.svg';
-          
-          // Set the site's default image
-          this.src = defaultImage;
-          this.classList.add('image-fallback');
-          
-          // Add label for broken image
-          if (container && !container.querySelector('.broken-image-label')) {
-            // Get the title/alt to use in the broken image notice
-            const title = container.getAttribute('data-title') || this.alt || 'Image';
-            
-            // Only for admin/logged-in users in dev environment
+    // Set up global image fallback handler
+    window.imageFallbackCallback = function(imgElement) {
+      const container = imgElement.closest('.responsive-image-container');
+      const originalSrc = imgElement.getAttribute('data-original-src');
+      const title = container ? container.getAttribute('data-title') || imgElement.alt || 'Image' : imgElement.alt || 'Image';
+      
+      // Store information about broken images for SEO purposes
+      if (!window.brokenImages) window.brokenImages = new Set();
+      if (originalSrc) window.brokenImages.add(originalSrc);
+      
+      // Add structured data for SEO even if image is broken
+      if (container && !container.querySelector('.image-seo-metadata')) {
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'image-seo-metadata';
+        metaDiv.setAttribute('itemscope', '');
+        metaDiv.setAttribute('itemtype', 'http://schema.org/ImageObject');
+        metaDiv.style.display = 'none';
+        
+        const metaName = document.createElement('meta');
+        metaName.setAttribute('itemprop', 'name');
+        metaName.content = title;
+        
+        const metaURL = document.createElement('meta');
+        metaURL.setAttribute('itemprop', 'contentUrl');
+        metaURL.content = originalSrc || imgElement.src;
+        
+        metaDiv.appendChild(metaName);
+        metaDiv.appendChild(metaURL);
+        container.appendChild(metaDiv);
+      }
+      
+      // Add label for broken image (development only)
+      if (container && !container.querySelector('.broken-image-label')) {
+        // Only for development environment
             if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('0.0.0.0')) {
               const label = document.createElement('span');
               label.className = 'broken-image-label';
