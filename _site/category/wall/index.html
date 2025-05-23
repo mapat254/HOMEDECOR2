@@ -11,7 +11,7 @@
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-<link rel="dns-prefetch" href="//your-disqus-shortname.disqus.com">
+<link rel="dns-prefetch" href="//cartlab.disqus.com">
 
 
 <!-- Modern browsers - tell browsers to start early connections -->
@@ -36,15 +36,15 @@
   <meta http-equiv="X-Robots-Tag" content="index, follow" />
 
 
-  <title>Wall | Buildify</title>
+  <title>Wall | CartLab</title>
   <meta property="og:title" content="Wall" />
   <meta name="twitter:title" content="Wall" />
 
 
 
-  <meta name="description" content="Your global hub for smart home innovation and modern property solutions" />
-  <meta property="og:description" content="Your global hub for smart home innovation and modern property solutions" />
-  <meta name="twitter:description" content="Your global hub for smart home innovation and modern property solutions" />
+  <meta name="description" content="Your global hub for smart cart and modern property solutions" />
+  <meta property="og:description" content="Your global hub for smart cart and modern property solutions" />
+  <meta name="twitter:description" content="Your global hub for smart cart and modern property solutions" />
 
 
 
@@ -67,14 +67,14 @@
 
 
 
-  <meta name="twitter:site" content="@yourusername" />
-  <meta name="twitter:creator" content="@yourusername" />
+  <meta name="twitter:site" content="@cartlab" />
+  <meta name="twitter:creator" content="@cartlab" />
 
 
 <meta name="twitter:card" content="summary_large_image" />
 
 
-  <meta name="keywords" content="smart home, property technology, home automation, smart property, real estate, smart living, IoT, buildify" />
+  <meta name="keywords" content="smart cart, property technology, cart automation, smart property, real estate, smart living, IoT, cartlab" />
 
 
 <!-- Preload Critical Assets -->
@@ -211,7 +211,7 @@ body {
 <link rel="stylesheet" href="/assets/css/custom.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 
-<link rel="alternate" type="application/rss+xml" title="Buildify" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="CartLab" href="/feed.xml">
 
 
 
@@ -230,7 +230,7 @@ body {
       <div class="site-branding">
         <a href="/" class="site-logo">
           
-          <img src="/assets/img/buildify-logo.svg" alt="Buildify" class="logo-img">
+          <img src="/assets/img/cartlab-logo.svg" alt="CartLab" class="logo-img">
           
         </a>
       </div>
@@ -1396,8 +1396,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="row">
         <div class="col-md-4">
           <div class="footer-info">
-            <h3>Buildify</h3>
-            <p>Your global hub for smart home innovation and modern property solutions</p>
+            <h3>CartLab</h3>
+            <p>Your global hub for smart cart and modern property solutions</p>
             <div class="social-links">
               
             </div>
@@ -1439,7 +1439,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <div class="footer-bottom">
       <div class="copyright">
-        <p>&copy; 2025 Buildify. All rights reserved.</p>
+        <p>&copy; 2025 CartLab. All rights reserved.</p>
       </div>
       
       <div class="back-to-top">
@@ -1463,123 +1463,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 
   
-<div id="popup-ad-container" class="popup-ad-container">
-  <div class="popup-ad-content">
-    <div class="popup-ad-header">
-      <p>Iklan</p>
-      <span id="popup-ad-countdown">5</span>
-    </div>
-    <button id="popup-ad-close" class="popup-ad-close" aria-label="Tutup iklan">&times;</button>
-    <div class="popup-ad-loader" id="popup-ad-loader">
-      <div class="popup-ad-loading-spinner"></div>
-      <p>Memuat iklan...</p>
-    </div>
-    <div class="popup-ad" id="popup-ad-content">
-      <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-client="ca-pub-2501282943430263"
-          data-ad-slot="8714679131"
-          data-ad-format="horizontal"
-          data-full-width-responsive="false"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({
-            onerror: function() {
-              document.getElementById('popup-ad-loader').style.display = 'none';
-            },
-            onload: function() {
-              document.getElementById('popup-ad-loader').style.display = 'none';
-            }
-          });
-      </script>
-    </div>
-  </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Fungsi untuk mengatur cookie
-    function setCookie(name, value, days) {
-      var expires = "";
-      if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-    }
-    
-    // Fungsi untuk mendapatkan cookie
-    function getCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-      }
-      return null;
-    }
-    
-    // Cek apakah iklan sudah ditampilkan dalam 1 hari terakhir
-    if (getCookie('popup_ad_closed') === 'true') {
-      return;
-    }
-    
-    // Tampilkan popup setelah 5 detik
-    setTimeout(function() {
-      var popupAdContainer = document.getElementById('popup-ad-container');
-      if (popupAdContainer) {
-        popupAdContainer.classList.add('show');
-        
-        // Countdown timer
-        var countdownElement = document.getElementById('popup-ad-countdown');
-        var countdown = 5;
-        
-        var countdownInterval = setInterval(function() {
-          countdown--;
-          if (countdownElement) {
-            countdownElement.textContent = countdown;
-          }
-          
-          if (countdown <= 0) {
-            clearInterval(countdownInterval);
-            var closeButton = document.getElementById('popup-ad-close');
-            if (closeButton) {
-              closeButton.classList.add('active');
-            }
-          }
-        }, 1000);
-        
-        // Auto close setelah waktu yang ditentukan di _config.yml
-        setTimeout(function() {
-          closePopupAd();
-        }, 5 * 1000);
-      }
-    }, 5000); // 5 detik delay sebelum menampilkan
-    
-    // Event listener tombol tutup
-    var closeButton = document.getElementById('popup-ad-close');
-    if (closeButton) {
-      closeButton.addEventListener('click', function() {
-        // Cek jika countdown sudah selesai
-        if (this.classList.contains('active')) {
-          closePopupAd();
-        }
-      });
-    }
-    
-    // Fungsi untuk menutup popup
-    function closePopupAd() {
-      var popupAdContainer = document.getElementById('popup-ad-container');
-      if (popupAdContainer) {
-        popupAdContainer.classList.remove('show');
-        // Simpan di cookie selama 1 hari
-        setCookie('popup_ad_closed', 'true', 1);
-      }
-    }
-  });
-</script>
-
   
   <!-- Critical scripts - load first for image handling and UI -->
   <script src="/assets/js/image-optimizer.js"></script>

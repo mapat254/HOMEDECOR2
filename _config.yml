@@ -10,7 +10,7 @@ logo: /assets/img/cartlab-logo.svg
 default_image: /assets/img/default-post-image.svg
 copyright_year: © 2025
 keywords:
-  - smart cart
+  - smart Home
   - property technology
   - cart automation
   - smart property
@@ -101,7 +101,7 @@ google_analytics:
 
 # Disqus comments
 disqus:
-  shortname: cartlab
+  shortname: cartlab-web-id
 
 # AdSense optimization
 adsense:
