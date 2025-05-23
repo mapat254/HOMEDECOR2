@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <meta http-equiv="X-Robots-Tag" content="index, follow" />
+
+
+  <title>Seasonal | Buildify</title>
+  <meta property="og:title" content="Seasonal" />
+  <meta name="twitter:title" content="Seasonal" />
+
+
+
+  <meta name="description" content="Your global hub for smart home innovation and modern property solutions" />
+  <meta property="og:description" content="Your global hub for smart home innovation and modern property solutions" />
+  <meta name="twitter:description" content="Your global hub for smart home innovation and modern property solutions" />
+
+
+
+  <link rel="canonical" href="http://0.0.0.0:5000/category/seasonal/" />
+  <meta property="og:url" content="http://0.0.0.0:5000/category/seasonal/" />
+  <meta name="twitter:url" content="http://0.0.0.0:5000/category/seasonal/" />
+
+
+
+  <meta property="og:image" content="http://0.0.0.0:5000/assets/img/default-post-image.svg" />
+  <meta name="twitter:image" content="http://0.0.0.0:5000/assets/img/default-post-image.svg" />
+
+
+
+  <meta property="og:type" content="website" />
+
+
+
+
+
+
+
+  <meta name="twitter:site" content="@yourusername" />
+  <meta name="twitter:creator" content="@yourusername" />
+
+
+<meta name="twitter:card" content="summary_large_image" />
+
+
+  <meta name="keywords" content="smart home, property technology, home automation, smart property, real estate, smart living, IoT, buildify" />
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<link rel="alternate" type="application/rss+xml" title="Buildify" href="/feed.xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+<!-- Additional SEO-specific tags that might not be covered by our custom meta tags -->
+
+<!-- Load AdSense script once -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2501282943430263" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <div class="wrapper">
+    <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="site-branding">
+        <a href="/" class="site-logo">
+          
+          <img src="/assets/img/buildify-logo.svg" alt="Buildify" class="logo-img">
+          
+        </a>
+      </div>
+      
+      <div class="header-right">
+        <nav class="site-navigation d-none d-lg-flex">
+          <ul class="nav-menu">
+  
+    
+      <li><a href="/">Home</a></li>
+    
+  
+    
+      <li><a href="/category/interior/">Interior</a></li>
+    
+  
+    
+      <li><a href="/category/exterior/">Exterior</a></li>
+    
+  
+    
+      <li><a href="/category/garden/">Garden</a></li>
+    
+  
+    
+      <li><a href="/about/">About</a></li>
+    
+  
+    
+      <li><a href="/contact/">Contact</a></li>
+    
+  
+</ul>
+        </nav>
+        
+        <div class="header-actions">
+          <div class="search-toggle">
+            <button id="search-toggle-btn" aria-label="Search">
+              <i data-feather="search"></i>
+            </button>
+          </div>
+          
+          <div class="dark-mode-toggle">
+            <div class="theme-toggle">
+  <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+    <i data-feather="sun" class="light-icon"></i>
+    <i data-feather="moon" class="dark-icon"></i>
+  </button>
+</div>
+
+          </div>
+          
+          <div class="mobile-menu-toggle d-lg-none">
+            <button id="menu-toggle-btn" aria-label="Menu">
+              <i data-feather="menu"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="searchBox" class="search-box">
+      <div class="search-form">
+  <form action="/search/" method="get" role="search" id="search-form">
+    <div class="input-group">
+      <input type="search" name="q" id="search-input" class="form-control" placeholder="Search..." aria-label="Search" autocomplete="off">
+      <button type="submit" class="search-btn" id="search-submit-btn">
+        <i data-feather="search"></i>
+      </button>
+    </div>
+  </form>
+  <div id="live-search-results" class="live-search-results"></div>
+</div>
+<script>
+// Ensure search-form is initialized immediately when this component loads
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  const searchSubmitBtn = document.getElementById('search-submit-btn');
+  const liveSearchResults = document.getElementById('live-search-results');
+  let searchIndex = [];
+  
+  if (searchForm && searchInput) {
+    console.log('Search form component loaded');
+    
+    // Add direct click handler to search button
+    if (searchSubmitBtn) {
+      searchSubmitBtn.addEventListener('click', function(e) {
+        if (searchInput.value.trim().length < 2) {
+          e.preventDefault();
+          console.log('Search prevented - query too short');
+          searchInput.focus();
+          return false;
+        }
+      });
+    }
+    
+    // Load search index for live search
+    fetch('/search.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Search data loaded successfully:', data.length, 'items');
+        searchIndex = data;
+        
+        // Set up live search
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase().trim();
+          
+          // Hide live search results if query is empty
+          if (query.length < 2) {
+            if (liveSearchResults) {
+              liveSearchResults.innerHTML = '';
+              liveSearchResults.style.display = 'none';
+            }
+            return;
+          }
+          
+          const results = searchIndex.filter(item => {
+            const titleMatch = item.title.toLowerCase().includes(query);
+            const contentMatch = item.content && item.content.toLowerCase().includes(query);
+            const tagsMatch = item.tags && item.tags.some(tag => tag.toLowerCase().includes(query));
+            const categoryMatch = item.categories && item.categories.some(category => category.toLowerCase().includes(query));
+            
+            return titleMatch || contentMatch || tagsMatch || categoryMatch;
+          }).slice(0, 5); // Limit live search results to 5 items
+          
+          // Display live search results
+          if (liveSearchResults) {
+            if (results.length === 0) {
+              liveSearchResults.innerHTML = `<p>No results found for "${query}"</p>`;
+              liveSearchResults.style.display = 'block';
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            } else {
+              let html = '<ul class="live-search-list">';
+              
+              results.forEach(result => {
+                // Make sure the URL is correct
+                const resultUrl = result.url.startsWith('/') ? result.url : '/' + result.url;
+                
+                html += `
+                  <li class="live-search-item">
+                    <a href="${resultUrl}">
+                      <span class="live-search-title">${result.title}</span>
+                      <span class="live-search-category">${result.categories && result.categories.length > 0 ? result.categories[0] : ''}</span>
+                    </a>
+                  </li>
+                `;
+              });
+              
+              html += `
+                <li class="live-search-more">
+                  <a href="/search/?q=${encodeURIComponent(query)}">View all results</a>
+                </li>
+              `;
+              html += '</ul>';
+              
+              liveSearchResults.innerHTML = html;
+              liveSearchResults.style.display = 'block';
+              
+              // Trigger animation after a tiny delay to ensure display:block has been applied
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            }
+          }
+        });
+        
+        // Hide live search results when clicking outside
+        document.addEventListener('click', function(e) {
+          if (liveSearchResults && !searchInput.contains(e.target) && !liveSearchResults.contains(e.target)) {
+            // Animate the fade out
+            liveSearchResults.classList.remove('active');
+            
+            // Hide after transition completes
+            setTimeout(() => {
+              liveSearchResults.style.display = 'none';
+            }, 200);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error loading search data:', error);
+      });
+  }
+});
+</script>
+
+    </div>
+  </div>
+  
+  <div id="mobileMenu" class="mobile-menu d-lg-none">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <div class="mobile-search">
+          <div class="search-form">
+  <form action="/search/" method="get" role="search" id="search-form">
+    <div class="input-group">
+      <input type="search" name="q" id="search-input" class="form-control" placeholder="Search..." aria-label="Search" autocomplete="off">
+      <button type="submit" class="search-btn" id="search-submit-btn">
+        <i data-feather="search"></i>
+      </button>
+    </div>
+  </form>
+  <div id="live-search-results" class="live-search-results"></div>
+</div>
+<script>
+// Ensure search-form is initialized immediately when this component loads
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.getElementById('search-form');
+  const searchInput = document.getElementById('search-input');
+  const searchSubmitBtn = document.getElementById('search-submit-btn');
+  const liveSearchResults = document.getElementById('live-search-results');
+  let searchIndex = [];
+  
+  if (searchForm && searchInput) {
+    console.log('Search form component loaded');
+    
+    // Add direct click handler to search button
+    if (searchSubmitBtn) {
+      searchSubmitBtn.addEventListener('click', function(e) {
+        if (searchInput.value.trim().length < 2) {
+          e.preventDefault();
+          console.log('Search prevented - query too short');
+          searchInput.focus();
+          return false;
+        }
+      });
+    }
+    
+    // Load search index for live search
+    fetch('/search.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Search data loaded successfully:', data.length, 'items');
+        searchIndex = data;
+        
+        // Set up live search
+        searchInput.addEventListener('input', function() {
+          const query = this.value.toLowerCase().trim();
+          
+          // Hide live search results if query is empty
+          if (query.length < 2) {
+            if (liveSearchResults) {
+              liveSearchResults.innerHTML = '';
+              liveSearchResults.style.display = 'none';
+            }
+            return;
+          }
+          
+          const results = searchIndex.filter(item => {
+            const titleMatch = item.title.toLowerCase().includes(query);
+            const contentMatch = item.content && item.content.toLowerCase().includes(query);
+            const tagsMatch = item.tags && item.tags.some(tag => tag.toLowerCase().includes(query));
+            const categoryMatch = item.categories && item.categories.some(category => category.toLowerCase().includes(query));
+            
+            return titleMatch || contentMatch || tagsMatch || categoryMatch;
+          }).slice(0, 5); // Limit live search results to 5 items
+          
+          // Display live search results
+          if (liveSearchResults) {
+            if (results.length === 0) {
+              liveSearchResults.innerHTML = `<p>No results found for "${query}"</p>`;
+              liveSearchResults.style.display = 'block';
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            } else {
+              let html = '<ul class="live-search-list">';
+              
+              results.forEach(result => {
+                // Make sure the URL is correct
+                const resultUrl = result.url.startsWith('/') ? result.url : '/' + result.url;
+                
+                html += `
+                  <li class="live-search-item">
+                    <a href="${resultUrl}">
+                      <span class="live-search-title">${result.title}</span>
+                      <span class="live-search-category">${result.categories && result.categories.length > 0 ? result.categories[0] : ''}</span>
+                    </a>
+                  </li>
+                `;
+              });
+              
+              html += `
+                <li class="live-search-more">
+                  <a href="/search/?q=${encodeURIComponent(query)}">View all results</a>
+                </li>
+              `;
+              html += '</ul>';
+              
+              liveSearchResults.innerHTML = html;
+              liveSearchResults.style.display = 'block';
+              
+              // Trigger animation after a tiny delay to ensure display:block has been applied
+              setTimeout(() => {
+                liveSearchResults.classList.add('active');
+              }, 10);
+            }
+          }
+        });
+        
+        // Hide live search results when clicking outside
+        document.addEventListener('click', function(e) {
+          if (liveSearchResults && !searchInput.contains(e.target) && !liveSearchResults.contains(e.target)) {
+            // Animate the fade out
+            liveSearchResults.classList.remove('active');
+            
+            // Hide after transition completes
+            setTimeout(() => {
+              liveSearchResults.style.display = 'none';
+            }, 200);
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error loading search data:', error);
+      });
+  }
+});
+</script>
+
+        </div>
+      </div>
+      <nav class="mobile-navigation">
+        <ul class="nav-menu">
+  
+    
+      <li><a href="/">Home</a></li>
+    
+  
+    
+      <li><a href="/category/interior/">Interior</a></li>
+    
+  
+    
+      <li><a href="/category/exterior/">Exterior</a></li>
+    
+  
+    
+      <li><a href="/category/garden/">Garden</a></li>
+    
+  
+    
+      <li><a href="/about/">About</a></li>
+    
+  
+    
+      <li><a href="/contact/">Contact</a></li>
+    
+  
+</ul>
+      </nav>
+    </div>
+  </div>
+  
+  <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+</header>
+
+    
+    <!-- Header AdSense Ad -->
+    
+    <div class="header-ad-container">
+      <div class="container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2501282943430263"
+             crossorigin="anonymous"></script>
+        <!-- HEADER -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2501282943430263"
+             data-ad-slot="9766157847"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+    
+    
+    <main class="content" aria-label="Content">
+      <div class="container">
+        <div class="row">
+          <div class="container mt-4">
+  <div class="category-header mb-4">
+    <h1 class="category-title mb-3"><i class="fas fa-folder-open me-2"></i>Seasonal</h1>
+    
+    <!-- Category Navigation Menu -->
+    <div class="category-navigation">
+      <div class="category-menu mb-4">
+        
+          
+          
+          
+          <a href="/category/scandinavian/" class="category-button ">
+            Scandinavian
+          </a>
+        
+          
+          
+          
+          <a href="/category/modern/" class="category-button ">
+            Modern
+          </a>
+        
+          
+          
+          
+          <a href="/category/living/" class="category-button ">
+            Living
+          </a>
+        
+          
+          
+          
+          <a href="/category/interior/" class="category-button ">
+            interior
+          </a>
+        
+          
+          
+          
+          <a href="/category/luxury/" class="category-button ">
+            Luxury
+          </a>
+        
+          
+          
+          
+          <a href="/category/small/" class="category-button ">
+            Small
+          </a>
+        
+          
+          
+          
+          <a href="/category/front/" class="category-button ">
+            Front
+          </a>
+        
+          
+          
+          
+          <a href="/category/interior/" class="category-button ">
+            Interior
+          </a>
+        
+          
+          
+          
+          <a href="/category/exterior/" class="category-button ">
+            Exterior
+          </a>
+        
+          
+          
+          
+          <a href="/category/garden/" class="category-button ">
+            Garden
+          </a>
+        
+          
+          
+          
+          <a href="/category/roofing/" class="category-button ">
+            Roofing
+          </a>
+        
+          
+          
+          
+          <a href="/category/porch/" class="category-button ">
+            Porch
+          </a>
+        
+          
+          
+          
+          <a href="/category/outdoor/" class="category-button ">
+            Outdoor
+          </a>
+        
+          
+          
+          
+          <a href="/category/sustainable/" class="category-button ">
+            Sustainable
+          </a>
+        
+          
+          
+          
+          <a href="/category/contemporary/" class="category-button ">
+            Contemporary
+          </a>
+        
+          
+          
+          
+          <a href="/category/industrial/" class="category-button ">
+            Industrial
+          </a>
+        
+          
+          
+          
+          <a href="/category/mid-century/" class="category-button ">
+            Mid-century
+          </a>
+        
+          
+          
+          
+          <a href="/category/traditional/" class="category-button ">
+            Traditional
+          </a>
+        
+          
+          
+          
+          <a href="/category/coastal/" class="category-button ">
+            Coastal
+          </a>
+        
+          
+          
+          
+          <a href="/category/garage/" class="category-button ">
+            Garage
+          </a>
+        
+          
+          
+          
+          <a href="/category/japandi/" class="category-button ">
+            Japandi
+          </a>
+        
+          
+          
+          
+          <a href="/category/rustic/" class="category-button ">
+            Rustic
+          </a>
+        
+          
+          
+          
+          <a href="/category/bohemian/" class="category-button ">
+            Bohemian
+          </a>
+        
+          
+          
+          
+          <a href="/category/mediterranean/" class="category-button ">
+            Mediterranean
+          </a>
+        
+          
+          
+          
+          <a href="/category/farmhouse/" class="category-button ">
+            Farmhouse
+          </a>
+        
+          
+          
+          
+          <a href="/category/bathroom/" class="category-button ">
+            Bathroom
+          </a>
+        
+          
+          
+          
+          <a href="/category/home/" class="category-button ">
+            Home
+          </a>
+        
+          
+          
+          
+          <a href="/category/kitchen/" class="category-button ">
+            Kitchen
+          </a>
+        
+          
+          
+          
+          <a href="/category/kids/" class="category-button ">
+            Kids’
+          </a>
+        
+          
+          
+          
+          <a href="/category/entryway/" class="category-button ">
+            Entryway
+          </a>
+        
+          
+          
+          
+          <a href="/category/balcony/" class="category-button ">
+            Balcony
+          </a>
+        
+          
+          
+          
+          <a href="/category/wood/" class="category-button ">
+            Wood
+          </a>
+        
+          
+          
+          
+          <a href="/category/laundry/" class="category-button ">
+            Laundry
+          </a>
+        
+          
+          
+          
+          <a href="/category/open/" class="category-button ">
+            Open
+          </a>
+        
+          
+          
+          
+          <a href="/category/flooring/" class="category-button ">
+            Flooring
+          </a>
+        
+          
+          
+          
+          <a href="/category/concrete/" class="category-button ">
+            Concrete
+          </a>
+        
+          
+          
+          
+          <a href="/category/natural/" class="category-button ">
+            Natural
+          </a>
+        
+          
+          
+          
+          <a href="/category/wall/" class="category-button ">
+            Wall
+          </a>
+        
+          
+          
+          
+          <a href="/category/how/" class="category-button ">
+            How
+          </a>
+        
+          
+          
+          
+          <a href="/category/window/" class="category-button ">
+            Window
+          </a>
+        
+          
+          
+          
+          <a href="/category/budget-friendly/" class="category-button ">
+            Budget-friendly
+          </a>
+        
+          
+          
+          
+          <a href="/category/common/" class="category-button ">
+            Common
+          </a>
+        
+          
+          
+          
+          <a href="/category/feng/" class="category-button ">
+            Feng
+          </a>
+        
+          
+          
+          
+          <a href="/category/choosing/" class="category-button ">
+            Choosing
+          </a>
+        
+          
+          
+          
+          <a href="/category/smart/" class="category-button ">
+            Smart
+          </a>
+        
+          
+          
+          
+          <a href="/category/seasonal/" class="category-button active">
+            Seasonal
+          </a>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Grid - Similar to homepage -->
+  <div class="post-grid-container">
+    <div class="row g-4">
+      
+      
+      
+      
+      
+        
+        
+          
+          <div class="col-md-6 col-lg-4 post-grid-item">
+            <article class="post-card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="post-card-inner">
+    <a href="/seasonal-design-trends-a-look-at-whats-hot-this-season" class="post-card-image-link u-url" itemprop="url">
+      
+
+
+
+
+
+
+
+
+<div class="responsive-image-container post-card-image"
+     data-title="Seasonal Design Trends: A Look at Whats Hot This Season"
+     data-default-image="/assets/images/default-thumbnail.svg"
+     >
+  <noscript>
+    <img src="https://idea.3dbrute.com/wp-content/uploads/2021/image/he3j/Minimalist-Scandinavian-design-14.jpg" 
+         alt="Seasonal Design Trends: A Look at Whats Hot This Season" 
+         class="responsive-image no-js ">
+  </noscript>
+  <img 
+    src="https://idea.3dbrute.com/wp-content/uploads/2021/image/he3j/Minimalist-Scandinavian-design-14.jpg"
+    alt="Seasonal Design Trends: A Look at Whats Hot This Season" 
+    class="responsive-image " 
+    loading="lazy" 
+    onerror="this.onerror=null;this.src='/assets/images/default-thumbnail.svg';this.classList.add('image-fallback');"
+    
+    
+  >
+  
+</div>
+
+      
+      
+      <div class="post-card-categories">
+        
+        <span class="post-card-category p-category" itemprop="keywords">Seasonal</span>
+        
+      </div>
+      
+    </a>
+    
+    <div class="post-card-content">
+      <h3 class="post-card-title p-name" itemprop="headline">
+        <a href="/seasonal-design-trends-a-look-at-whats-hot-this-season" class="u-url">Seasonal Design Trends: A Look at Whats Hot This Season</a>
+      </h3>
+      
+      <div class="post-meta">
+        <time class="post-date dt-published" datetime="2025-05-23T07:24:10+00:00" itemprop="datePublished">
+          <i class="icon fa fa-calendar"></i>
+          23 May 2025
+        </time>
+        
+        
+        <span class="post-author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <i class="icon fa fa-user"></i>
+          <span itemprop="name">ChartLab</span>
+        </span>
+        
+        
+        
+        <span class="post-comments">
+          <i class="icon fa fa-comment"></i>
+          <span>Komentar</span>
+        </span>
+        
+        
+        
+        <meta itemprop="keywords" content="seasonal design trends, design trends a, seasonal design, design trends, look">
+        
+      </div>
+      
+      <div class="post-excerpt p-summary" itemprop="description">
+        
+          Tendencias de Diseño de Temporada: Un Vistazo a Lo Que Está de Moda Esta Temporada
+
+
+        
+      </div>
+      
+      <div class="post-readmore">
+        <a href="/seasonal-design-trends-a-look-at-whats-hot-this-season" class="btn-readmore" aria-label="Baca artikel Seasonal Design Trends: A Look at Whats Hot This Season">
+          Baca Selengkapnya <i class="icon fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+          </div>
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+        
+        
+      
+    </div>
+    
+    
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Category search functionality
+    const searchInput = document.getElementById('category-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const postItems = document.querySelectorAll('.post-grid-item');
+        
+        postItems.forEach(item => {
+          const title = item.querySelector('.card-title').textContent.toLowerCase();
+          if (title.includes(searchTerm)) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
+    
+    // Filter buttons functionality
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    if (filterButtons.length) {
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Toggle active class
+          document.querySelector('[data-filter].active').classList.remove('active');
+          this.classList.add('active');
+          
+          const filter = this.getAttribute('data-filter');
+          const postItems = document.querySelectorAll('.post-grid-item');
+          
+          // Apply filter logic based on filter type
+          if (filter === 'all') {
+            postItems.forEach(item => item.style.display = '');
+          } else if (filter === 'newest') {
+            // This is simplified - in a real implementation we'd sort by date
+            const posts = Array.from(postItems);
+            posts.sort((a, b) => {
+              // Add actual sorting logic based on post dates
+              return 0; // Placeholder for actual comparison
+            });
+            
+            // Reorder in DOM
+            const parent = posts[0].parentNode;
+            posts.forEach(post => parent.appendChild(post));
+          }
+          // Add logic for 'popular' filter
+        });
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Category Header Styles */
+  .category-header {
+    background-color: var(--widget-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .category-title {
+    font-size: 1.75rem;
+    color: var(--heading-color);
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+  
+  .category-title i {
+    color: #0d6efd;
+    margin-right: 0.75rem;
+  }
+  
+  /* Category Menu Styles */
+  .category-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.25rem;
+  }
+  
+  .category-button {
+    display: inline-block;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  
+  .category-button:hover,
+  .category-button.active {
+    background-color: #0d6efd;
+    color: white;
+    transform: translateY(-3px);
+    border-color: #0d6efd;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.2);
+  }
+
+  /* Post Grid Container */
+  .post-grid-container {
+    margin-bottom: 2rem;
+  }
+  
+  .post-grid-item {
+    transition: transform 0.3s ease;
+  }
+  
+  .post-grid-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .no-posts-message {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--widget-bg);
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 991px) {
+    .post-grid-item {
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .category-menu {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      padding-bottom: 0.75rem;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .category-menu::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Edge */
+    }
+    
+    .post-grid-item {
+      margin-bottom: 1.25rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .category-header {
+      padding: 1.25rem;
+    }
+    
+    .category-title {
+      font-size: 1.5rem;
+    }
+    
+    .category-button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      min-width: auto;
+    }
+  }
+</style>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="footer-info">
+            <h3>Buildify</h3>
+            <p>Your global hub for smart home innovation and modern property solutions</p>
+            <div class="social-links">
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-2">
+          <div class="footer-links">
+            <h4>Tentang</h4>
+            <ul>
+              <li><a href="/about/">About Us</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="footer-links">
+            <h4>Kategori</h4>
+            <ul>
+              <li><a href="/category/interior/">Interior Design</a></li>
+              <li><a href="/category/exterior/">Exterior Design</a></li>
+              <li><a href="/category/garden/">Garden & Landscape</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-3">
+          <div class="footer-links">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="/terms/">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="copyright">
+        <p>&copy; 2025 Buildify. All rights reserved.</p>
+      </div>
+      
+      <div class="back-to-top">
+        <a href="#" id="back-to-top-btn" aria-label="Back to top">
+          <i data-feather="chevron-up"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    feather.replace();
+  });
+</script>
+
+  </div>
+
+  
+<div id="popup-ad-container" class="popup-ad-container">
+  <div class="popup-ad-content">
+    <div class="popup-ad-header">
+      <p>Iklan</p>
+      <span id="popup-ad-countdown">5</span>
+    </div>
+    <button id="popup-ad-close" class="popup-ad-close" aria-label="Tutup iklan">&times;</button>
+    <div class="popup-ad-loader" id="popup-ad-loader">
+      <div class="popup-ad-loading-spinner"></div>
+      <p>Memuat iklan...</p>
+    </div>
+    <div class="popup-ad" id="popup-ad-content">
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-2501282943430263"
+          data-ad-slot="8714679131"
+          data-ad-format="horizontal"
+          data-full-width-responsive="false"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            onerror: function() {
+              document.getElementById('popup-ad-loader').style.display = 'none';
+            },
+            onload: function() {
+              document.getElementById('popup-ad-loader').style.display = 'none';
+            }
+          });
+      </script>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk mengatur cookie
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    
+    // Fungsi untuk mendapatkan cookie
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+    
+    // Cek apakah iklan sudah ditampilkan dalam 1 hari terakhir
+    if (getCookie('popup_ad_closed') === 'true') {
+      return;
+    }
+    
+    // Tampilkan popup setelah 5 detik
+    setTimeout(function() {
+      var popupAdContainer = document.getElementById('popup-ad-container');
+      if (popupAdContainer) {
+        popupAdContainer.classList.add('show');
+        
+        // Countdown timer
+        var countdownElement = document.getElementById('popup-ad-countdown');
+        var countdown = 5;
+        
+        var countdownInterval = setInterval(function() {
+          countdown--;
+          if (countdownElement) {
+            countdownElement.textContent = countdown;
+          }
+          
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            var closeButton = document.getElementById('popup-ad-close');
+            if (closeButton) {
+              closeButton.classList.add('active');
+            }
+          }
+        }, 1000);
+        
+        // Auto close setelah waktu yang ditentukan di _config.yml
+        setTimeout(function() {
+          closePopupAd();
+        }, 5 * 1000);
+      }
+    }, 5000); // 5 detik delay sebelum menampilkan
+    
+    // Event listener tombol tutup
+    var closeButton = document.getElementById('popup-ad-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', function() {
+        // Cek jika countdown sudah selesai
+        if (this.classList.contains('active')) {
+          closePopupAd();
+        }
+      });
+    }
+    
+    // Fungsi untuk menutup popup
+    function closePopupAd() {
+      var popupAdContainer = document.getElementById('popup-ad-container');
+      if (popupAdContainer) {
+        popupAdContainer.classList.remove('show');
+        // Simpan di cookie selama 1 hari
+        setCookie('popup_ad_closed', 'true', 1);
+      }
+    }
+  });
+</script>
+
+  
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/dark-mode.js"></script>
+  
+  
+</body>
+</html>
