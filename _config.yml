@@ -1,6 +1,6 @@
 
 # Site settings
-title: CartLab
+title: Home Decor Ideas
 description: Your global hub for smart cart and modern property solutions
 author: CartLab Team
 email: partners@cartlab.web.id
@@ -21,7 +21,7 @@ keywords:
 
 # Build settings
 markdown: kramdown
-permalink: /:title/
+permalink: /posts/:title/
 incremental: true
 include: ["_pages"]
 highlighter: rouge
@@ -133,7 +133,7 @@ defaults:
       toc: true
       share: true
       related: true
-      slug: "post-default-slug"
+      permalink: /:title/
   - scope:
       path: ""
       type: "pages"
