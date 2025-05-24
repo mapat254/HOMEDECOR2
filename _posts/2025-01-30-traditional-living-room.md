@@ -10,6 +10,7 @@ tags:
   - room
 image: https://tse1.mm.bing.net/th?q=traditional%20living%20room
 layout: post
+permalink: /traditional-living-room
 ---
 
 **Cool Traditional Living Room References**. Its design draws the eye upward, adding depth to the space. We take you through some of the most beautiful (but easy to achieve) traditional living room decor ideas, paying attention to furniture, color schemes, and paint ideas.
