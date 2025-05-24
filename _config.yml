@@ -6,7 +6,7 @@ author: CartLab Team
 email: partners@cartlab.web.id
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://cartlab.web.id" # the base hostname & protocol for your site
-logo: /assets/img/cartlab-logo.svg
+logo: /assets/images/favicon-96x96.png
 default_image: /assets/img/default-post-image.svg
 copyright_year: © 2025
 keywords:
