@@ -105,7 +105,7 @@ disqus:
 
 # AdSense optimization
 adsense:
-  client_id: ca-pub-2501282943430263
+  client_id: 
   enable_page_level_ads: true
   enable_in_article_ads: true
   enable_sidebar_ads: true
