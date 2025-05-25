@@ -4,7 +4,7 @@ layout: default
 <div class="home-container col-lg-8">
   
   <div class="latest-posts">
-    <h2 class="section-title">Artikel Terbaru</h2>
+    <h2 class="section-title">Latest Articles</h2>
     <div class="post-grid-container">
       <div class="post-grid">
         {% assign post_limit = site.adsense.posts_per_home | default: 12 %}
@@ -23,7 +23,7 @@ layout: default
     {% assign post_limit = site.adsense.posts_per_home | default: 10 %}
     {% if site.posts.size > post_limit %}
       <div class="view-all-posts">
-        <a href="{{ '/page/2/' | relative_url }}" class="btn btn-primary">Lihat Artikel Selengkapnya</a>
+        <a href="{{ '/page/2/' | relative_url }}" class="btn btn-primary">See Full Article</a>
       </div>
     {% endif %}
   </div>
